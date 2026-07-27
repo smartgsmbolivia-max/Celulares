@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart GSM</title>
+
+<style>
+  
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f5f7;
+  color: #1f2937;
+}
+/* ===== FRANJA INFORMATIVA ===== */
+
+.barra-superior {
+  background: #0b0b0b;
+  color: #ffffff;
+  padding: 9px 20px;
+  font-size: 13px;
+}
+
+.barra-superior-contenido {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.barra-superior-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.barra-superior a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.barra-superior a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+
+  .barra-superior {
+    padding: 8px 12px;
+    overflow: hidden;
+  }
+
+  .barra-superior-contenido {
+    justify-content: flex-start;
+    gap: 25px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .barra-superior-contenido::-webkit-scrollbar {
+    display: none;
+  }
+
+  .barra-superior-item {
+    font-size: 12px;
+  }
+}
+header {
+background: linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+padding:15px;
+display:flex;
+flex-direction:column;
+gap:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.25);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.topbar {display:flex;justify-content:space-between;align-items:center;}
+
+input {
+padding:10px 15px;
+border-radius:25px;
+border:none;
+width:230px;
+outline:none;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+input:focus {
+transform:scale(1.05);
+}
+
+#filtros {display:flex;gap:8px;flex-wrap:wrap;}
+
+#filtros button {
+background:white;
+border:1px solid #d1d5db;
+padding:8px 14px;
+border-radius:20px;
+cursor:pointer;
+font-size:13px;
+font-weight:500;
+transition:all 0.25s ease;
+}
+
+#filtros button:hover {
+background:#000;
+color:white;
+border-color:#000;
+transform:scale(1.05);
+}
+
+#filtros button.activo {
+background:#000;
+color:white;
+border-color:#000;
+}
+
+.container {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;padding:20px;
+}
+
+.card {
+background: rgba(255,255,255,0.75);
+backdrop-filter: blur(10px);
+border-radius:20px;
+padding:15px;
+text-align:center;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
+position:relative;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+border:1px solid rgba(255,255,255,0.3);
+}
+
+.card:hover {
+transform: scale(1.05);
+box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card.agotado {filter: grayscale(100%) brightness(0.85);}
+
+.badge {
+position:absolute;top:10px;left:10px;
+background:#dc3545;color:white;
+padding:4px 8px;border-radius:6px;font-size:12px;
+}
+
+.card img {
+width:100%;
+height:160px;
+object-fit:contain;
+transition: transform 0.3s ease;
+}
+
+.card:hover img {transform: scale(1.1);}
+
+.price {
+font-weight:bold;
+margin:10px 0;
+font-size:20px;
+color:#16a34a;
+}
+
+.btn {
+background:#111827;
+color:white;
+border:none;
+padding:10px;
+border-radius:12px;
+width:100%;
+cursor:pointer;
+margin-top:5px;
+transition:0.3s;
+}
+
+.btn:hover {
+transform:scale(1.05);
+}
+
+.buy {
+background: linear-gradient(135deg,#25D366,#128C7E);
+font-weight:bold;
+}
+
+#abrirCarrito {
+position:fixed;
+bottom:20px;
+right:20px;
+background: linear-gradient(135deg,#000,#374151);
+color:white;
+border:none;
+padding:18px;
+border-radius:50%;
+font-size:22px;
+z-index:999;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+#abrirCarrito:hover {
+transform:scale(1.1);
+}
+
+#contador {
+position:absolute;top:-5px;right:-5px;
+background:red;color:white;font-size:12px;
+padding:3px 6px;border-radius:50%;
+}
+
+.panel {
+position:fixed;
+right:0;
+top:0;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+padding:15px;
+transform:translateX(100%);
+transition:0.3s;
+display:flex;
+flex-direction:column;
+z-index:1000;
+
+/* 👇 CLAVE */
+overflow-y:auto;
+}
+.panel.activo {transform:translateX(0);}
+
+#overlay {
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,0.4);display:none;
+z-index:999;
+}
+#overlay.activo {display:block;}
+
+.item {
+display:flex;justify-content:space-between;
+align-items:center;background:#f9fafb;
+padding:8px;border-radius:10px;margin:8px 0;
+}
+
+.controls button {
+background:#e5e7eb;border:none;
+padding:4px 8px;border-radius:6px;
+cursor:pointer;
+}
+
+.footer-carrito {margin-top:auto;padding-top:10px;}
+
+.total {font-size:20px;font-weight:bold;margin-bottom:10px;}
+
+.btn2 {
+width:100%;padding:12px;border:none;
+border-radius:10px;margin-top:5px;
+cursor:pointer;font-size:14px;
+}
+
+.whatsapp {background:#25D366;color:white;}
+.vaciar {background:#dc3545;color:white;}
+.ver {background:#0d6efd;color:white;}
+
+  /* TODO TU CSS ACTUAL */
+
+/* ===== BOTONES WHATSAPP PRO ===== */
+
+.vendedores {
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-top:10px;
+}
+
+.vendedores button {
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:12px;
+border-radius:12px;
+border:none;
+font-weight:bold;
+font-size:14px;
+cursor:pointer;
+color:white;
+background:linear-gradient(135deg,#25D366,#128C7E);
+box-shadow:0 4px 12px rgba(0,0,0,0.25);
+transition:all 0.25s ease;
+}
+
+/* efecto hover */
+.vendedores button:hover {
+transform:scale(1.05);
+box-shadow:0 8px 18px rgba(0,0,0,0.35);
+}
+
+/* efecto click */
+.vendedores button:active {
+transform:scale(0.95);
+}
+
+/* ===== BOTONES WHATSAPP PRO UNIVERSAL ===== */
+
+.btn2.whatsapp {
+background: linear-gradient(135deg,#25D366,#128C7E);
+color:white;
+font-weight:bold;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.25);
+transition:all 0.3s ease;
+}
+
+/* hover */
+.btn2.whatsapp:hover {
+transform:scale(1.05);
+box-shadow:0 8px 18px rgba(0,0,0,0.35);
+}
+
+/* click */
+.btn2.whatsapp:active {
+transform:scale(0.95);
+}
+
+.logo img{
+height:40px;
+object-fit:contain;
+}
+
+.logo img{
+height:45px;
+filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+
+/* ===== FOOTER ===== */
+
+.footer-info{
+margin-top:40px;
+background:linear-gradient(135deg,#0f172a,#111827);
+color:white;
+padding:40px 20px 20px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.footer-grid h3{
+margin-bottom:12px;
+font-size:18px;
+}
+
+.footer-grid p{
+color:#d1d5db;
+line-height:1.6;
+}
+
+.footer-link{
+display:block;
+color:#e5e7eb;
+text-decoration:none;
+margin:8px 0;
+transition:0.25s;
+}
+
+.footer-link:hover{
+color:#25D366;
+transform:translateX(5px);
+}
+
+.footer-copy{
+text-align:center;
+margin-top:30px;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,0.1);
+font-size:13px;
+color:#9ca3af;
+}
+  
+</style>
+</head>
+
+<body>
+<!-- ===== FRANJA INFORMATIVA SUPERIOR ===== -->
+
+<div class="barra-superior">
+
+  <div class="barra-superior-contenido">
+
+    <div class="barra-superior-item">
+      🚚 Envíos a toda Bolivia
+    </div>
+
+    <div class="barra-superior-item">
+      🔒 Compra segura y confiable
+    </div>
+
+    <div class="barra-superior-item">
+      💳 Diferentes formas de pago
+    </div>
+
+    <div class="barra-superior-item">
+      <a href="https://wa.me/59170341190" target="_blank">
+        💬 Atención por WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+</div>
+  
+<header>
+<div class="topbar">
+<div class="logo">
+<img src="img/logo.png" alt="Smart GSM">
+</div>
+<input type="text" id="buscador" placeholder="Buscar...">
+</div>
+
+<div id="filtros">
+<button onclick="filtrar('')" class="activo">Todos</button>
+<button onclick="filtrar('apple')">Apple</button>
+<button onclick="filtrar('honor')">Honor</button> 
+<button onclick="filtrar('infinix')">Infinix</button>
+<button onclick="filtrar('realme')">Realme</button>
+<button onclick="filtrar('samsung')">Samsung</button>
+<button onclick="filtrar('tecno')">Tecno</button>
+<button onclick="filtrar('xiaomi')">Xiaomi</button>
+</div>
+</header>
+
+<div id="overlay" onclick="cerrarPanel()"></div>
+
+<button id="abrirCarrito" onclick="togglePanel()">
+🛒 <span id="contador">0</span>
+</button>
+
+<div class="container" id="productos"></div>
+
+<div class="panel" id="panel">
+<h3>🧾 Pedido</h3>
+<div id="lista"></div>
+
+<div class="footer-carrito">
+<div class="total">💰 Total: Bs <span id="total">0</span></div>
+
+<button class="btn2 ver" onclick="verPedido()">🧾 Ver pedido</button>
+
+<div id="whatsappVendedores" style="display:flex;flex-direction:column;gap:6px;"></div>
+
+<button class="btn2 vaciar" onclick="vaciar()">🗑 Vaciar</button>
+</div>
+</div>
+
+<script>
+const cambio = 11.80;
+let cart={};
+
+let vendedores = [
+
+{nombre:"Pamela", numero:"59165391518"},
+{nombre:"Eliana", numero:"59165391513"},  
+{nombre:"Judith", numero:"59165391339"},
+{nombre:"Fabiola", numero:"59169484826"},
+{nombre:"Janine", numero:"59160751226"},
+{nombre:"Jhamila", numero:"59165391540"},  
+{nombre:"Supervisor", numero:"59170341190"}
+];
+
+let productos=[
+["Alcatel 3T 10 Smart 2/32",70,false,"img/alcatel.jpg"],
+
+["Apple Iphone 15 128GB",627,true,"img/iphone15.jpg"],
+["Apple Iphone 16 128GB",700,false,"img/iphone16.jpg"],
+["Apple Iphone 17 256GB",820,true,"img/iphone17.jpg"],
+["Apple Iphone 17E 256GB",640,false,"img/iphone17e.png"],  
+["Apple Iphone 17 Pro Max 256GB",1270,false,"img/iphone17promax.png"],
+["Apple Iphone Air 256GB",910,false,"img/iphoneair.jpg"],
+
+["Honor Magic 8 Lite 8/256",342,false,"img/magic8lite.png"],
+["Honor Magic 8 Lite 8/512",408,false,"img/magic8lite.png"],
+["Honor Magic 8 Pro 12/512",1235,true,"img/honormagic8pro-Photoroom.png"],
+["Honor Pad 10 8/256",336,true,"img/honorpad10.png"],
+["Honor Pad X7 4/128",120,true,"img/padx7.png"],
+["Honor Pad X8A 4/128",155,true,"img/padx8a.png"],
+["Honor Pad X9A 8/128 + Teclado",245,true,"img/honorpadx9a.png"],
+["Honor X5C 4/128",83,true,"img/honorx5c-Photoroom.png"],
+["Honor X5C 4/64",78,true,"img/honorx5c-Photoroom.png"],
+["Honor X5C Plus 4/256",123,true,"img/x5cplus.png"],
+["Honor X5D 4/128",132,false,"img/x5d.png"],  
+["Honor X6C 6/256",149,true,"img/x6c.png"],
+["Honor X6C 8/256",167,false,"img/x6c.png"],
+["Honor X7D 6/256",190,false,"img/x7d6.png"],
+["Honor X7D 8/256",204,false,"img/x7d8.png"],
+["Honor X8C 8/256",190,true,"img/honorx8c.png"],
+["Honor X8D 8/256",240,false,"img/x8d256.png"],
+["Honor X8D 8/512",264,true,"img/x8d512.png"],
+["Honor 600e 5G 8/256",425,false,"img/600e.png"],
+["Honor 600 5G 8/256",550,false,"img/6005g8256.png"],
+["Honor 600 5G 8/512",570,false,"img/6005g8512.png"],
+["Honor 600 5G 12/512",590,false,"img/6005g12512.png"],
+["Honor 400 Pro 5G 12/512",565,false,"img/400pro5g12512.png"],
+["Honor 600 Pro 5G 12/512",780,false,"img/600pro5g12512.png"],  
+
+["Infinix Hot 60 Pro+ 8/256",188,true,"img/hot60proplus.png"],
+["Infinix Note 50S 5G 8/256",210,true,"img/note50s.png"],
+
+["Realme 14 5G 8/256",245,true,"img/145g.png"],
+["Realme 14T 8/256",206,false,"img/14t.png"],
+["Realme 16 Pro 5G 12/512",395,false,"img/16.png"],  
+["Realme C71 8/256",150,false,"img/c71.png"],
+["Realme C85 8/256",197,false,"img/c85.png"],
+["Realme Note 70 4/128",107,false,"img/realmenote70.png"],
+["Realme Note 70 8/256",144,true,"img/realmenote70.png"],
+["Realme P4 Power 5G 12/512",470,false,"img/realmep4power5g.png"],  
+
+["Samsung Galaxy S26 Ultra 5G 12/512",1070,false,"img/samsungs26ultra.png"],
+["Samsung Galaxy S25 Ultra 5G 12/256",805,false,"img/samsungs25ultra12256.png"],
+["Samsung Galaxy S25 Ultra 5G 12/512",835,false,"img/samsungs25ultra12512.png"],  
+
+["Tecno Camono 50 Pro 8/256",291,false,"img/camon50pro.png"],  
+["Tecno Pova Curve 2 5G",276,false,"img/povacurve2.png"],
+["Tecno Spark Go 3 4/128",98,true,"img/sparkgo3128.png"],
+["Tecno Spark Go 3 4/64",84,true,"img/sparkgo364.png"],
+["Tecno Spark 50 4/256",135,true,"img/spark50.jpg"],
+
+["Xiaomi Pad 7 8/256",330,false,"img/pad7.png"],
+["Xiaomi Pad 8 Pro 8/256",530,true,"img/xiaomipad8pro8.png"],
+["Xiaomi Pad 8 Pro 12/512",625,false,"img/xiaomipad8pro12.png"],  
+["Xiaomi Pad Mini 12/512",468,false,"img/padmini.png"],
+["Xiaomi Poco F8 Pro 12/512",540,false,"img/pocof8pro256.png"],
+["Xiaomi Poco F8 Ultra 12/256",705,true,"img/pocof8ultra12.png"],
+["Xiaomi Poco F8 Ultra 16/512",740,false,"img/pocof8ultra12.png"],
+["Xiaomi Poco M7 Pro 12/512",226,false,"img/pocom7pro.png"],
+["Xiaomi Poco M8 5G 8/512",247,false,"img/pocom8.png"],
+["Xiaomi Poco M8 Pro 5G 12/512",320,false,"img/pocom8pro12.png"],
+["Xiaomi Poco M8 Pro 5G 8/256",295,false,"img/pocom8pro8.png"],
+["Xiaomi Poco Pad 8/256",235,true,"img/xiaomipocopad.png"],
+["Xiaomi Poco Pad M1 8/256",272,false,"img/pocopadm1.png"],
+["Xiaomi Poco Pad X1 8/512",337,false,"img/pocopadx1.png"],
+["Xiaomi Poco X7 Pro 5G 12/512",340,false,"img/pocox7pro12.png"],
+["Xiaomi Poco X7 Pro 5G 8/256",278,true,"img/xiaomipocox7pro5g.png"],
+["Xiaomi Poco X8 Pro 8/512",352,false,"img/pocox8pro12.png"], 
+["Xiaomi Poco X8 Pro 12/512",392,false,"img/pocox8pro12.png"],
+["Xiaomi Poco X8 Pro Iron Man 12/512",437,false,"img/pocox8pro12ironman.png"],
+["Xiaomi Poco X8 Pro 8/256",325,false,"img/pocox8pro8.png"],
+["Xiaomi Poco X8 Pro Max 12/256",445,false,"img/pocox8promax.png"],
+["Xiaomi Poco X8 Pro Max 12/512",490,false,"img/pocox8promax.png"],
+
+["Xiaomi Redmi 15C 4/128",118,false,"img/redmi15c4.png"],
+["Xiaomi Redmi 15C 4/256",122,true,"img/redmi15c4256.png"],
+["Xiaomi Redmi 15C 8/256",135,true,"img/redmi15c8256.png"],
+["Xiaomi Redmi Note 14 Pro 5G 8/256",240,true,"img/redminote14pro5g.png"],
+["Xiaomi Redmi Note 14 Pro 8/256",210,false,"img/redminote14pro.png"],
+["Xiaomi Redmi Note 14 Pro+ 12/256",286,true,"img/redminote14proplus12256.png"],
+["Xiaomi Redmi Note 14 Pro+ 12/512",330,true,"img/redminote14proplus12512.png"],
+["Xiaomi Redmi Note 14 Pro+ 8/256",272,false,"img/redminote14proplus8256.png"],
+["Xiaomi Redmi Note 15 6/128",170,true,"img/redminote156.png"],
+["Xiaomi Redmi Note 15 8/256",185,true,"img/redminote158.png"],
+["Xiaomi Redmi Note 15 Pro 5G 8/256",285,false,"img/redminote15pro5g.png"],
+["Xiaomi Redmi Note 15 Pro 8/256",250,false,"img/redminote15pro.png"],
+["Xiaomi Redmi Note 15 Pro 12/512",275,true,"img/redminote15pro.png"],
+["Xiaomi Redmi Note 15 Pro+ 12/512",406,false,"img/redminote15proplus12.png"],
+["Xiaomi Redmi Note 15 Pro+ 8/256",343,false,"img/redminote15proplus8.png"],
+
+["Xiaomi Redmi Pad 2 4/128",155,true,"img/redmipad24.png"],
+["Xiaomi Redmi Pad 2 4G 8/256",225,true,"img/redmipad24g.png"],
+["Xiaomi Redmi Pad 2 8/256",210,true,"img/redmipad24.png"],
+["Xiaomi Redmi Pad 2 Pro 8/256",300,true,"img/xiaomiredmipad2pro.png"],
+["Xiaomi Redmi Pad Pro 5G 8/256",285,true,"img/xiaomipadpro5g.png"],
+["Xiaomi Redmi Pad Pro 8/256",231,true,"img/xiaomipadpro5g.png"],
+["Xiaomi Redmi Pad Se 8/256",170,true,"img/xiaomiredmipadse.png"]
+];
+
+function mostrar(lista){
+let html="";
+lista.forEach(p=>{
+if(p[2]) return;
+
+let img = p[3] ? p[3] : "img/default.png";
+
+html+=`
+<div class="card ${p[2] ? 'agotado' : ''}">
+${p[2]?'<div class="badge">❌ AGOTADO</div>':''}
+<img src="${img}">
+<p>${p[0]}</p>
+<p class="price">Bs ${Math.round(p[1] * cambio).toLocaleString()}</p>
+
+${p[2] ? `
+<button class="btn" disabled>Sin stock</button>
+<button class="btn buy" disabled>No disponible</button>
+` : `
+<button class="btn" onclick="add('${p[0]}',${p[1]})">Agregar</button>
+<button class="btn buy" onclick="comprar('${p[0]}',${p[1]})">💬 Comprar por WhatsApp</button>
+`}
+</div>`;
+});
+document.getElementById("productos").innerHTML=html;
+}
+
+function renderVendedores(){
+let html="<strong>📲 Elegir vendedor:</strong>";
+
+vendedores.forEach(v=>{
+html += `
+<button class="btn2 whatsapp" onclick="enviar('${v.numero}','${v.nombre}')">
+📲 ${v.nombre}
+</button>
+`;
+});
+
+document.getElementById("whatsappVendedores").innerHTML = html;
+}
+
+function enviar(numero,nombre){
+let txt="🛒 *SMART GSM*%0A%0A";
+let total=0;
+
+txt += "Hola " + nombre + ", quiero realizar el siguiente pedido:%0A%0A";
+
+for(let i in cart){
+let p=cart[i];
+txt+=`📱 ${i} x${p.cantidad}%0A`;
+total+=p.precio*p.cantidad;
+}
+
+txt+=`%0ATotal: Bs ${Math.round(total * cambio).toLocaleString()}`;
+
+window.open("https://wa.me/"+numero+"?text="+txt);
+}
+
+function add(n,p){
+if(!cart[n]) cart[n]={precio:p,cantidad:1};
+else cart[n].cantidad++;
+render();
+}
+
+function comprar(n,p){
+
+if(!cart[n]) cart[n]={precio:p,cantidad:1};
+else cart[n].cantidad++;
+
+render();
+
+document.getElementById("panel").classList.add("activo");
+document.getElementById("overlay").classList.add("activo");
+
+}
+
+function render(){
+let html="",total=0,cant=0;
+
+for(let i in cart){
+let p=cart[i];
+let sub=p.precio*p.cantidad;
+total+=sub;
+cant+=p.cantidad;
+
+html+=`
+<div class="item">
+<div>${i}</div>
+<div class="controls">
+<button onclick="cambiar('${i}',-1)">-</button>
+${p.cantidad}
+<button onclick="cambiar('${i}',1)">+</button>
+</div>
+<div>Bs ${Math.round(sub * cambio).toLocaleString()}</div>
+</div>`;
+}
+
+document.getElementById("lista").innerHTML=html;
+document.getElementById("total").innerText=Math.round(total * cambio).toLocaleString();
+document.getElementById("contador").innerText=cant;
+}
+
+function cambiar(n,v){
+cart[n].cantidad+=v;
+if(cart[n].cantidad<=0) delete cart[n];
+render();
+}
+
+function vaciar(){cart={};render();}
+
+function togglePanel(){
+document.getElementById("panel").classList.toggle("activo");
+document.getElementById("overlay").classList.toggle("activo");
+}
+
+function cerrarPanel(){
+document.getElementById("panel").classList.remove("activo");
+document.getElementById("overlay").classList.remove("activo");
+}
+
+function verPedido(){
+let txt="🧾 RESUMEN%0A%0A";
+let total=0;
+
+for(let i in cart){
+let p=cart[i];
+txt+=`${i} x${p.cantidad} = Bs ${Math.round((p.precio*p.cantidad) * cambio).toLocaleString()}%0A`;
+total+=p.precio*p.cantidad;
+}
+
+txt+=`%0ATotal: Bs ${Math.round(total * cambio).toLocaleString()}`;
+alert(decodeURIComponent(txt));
+}
+
+document.getElementById("buscador").addEventListener("input",e=>{
+let val=e.target.value.toLowerCase();
+let filtrado=productos.filter(p=>p[0].toLowerCase().includes(val));
+mostrar(filtrado);
+});
+
+function filtrar(marca){
+if(!marca){mostrar(productos);return;}
+let filtrado=productos.filter(p=>p[0].toLowerCase().includes(marca));
+mostrar(filtrado);
+}
+
+mostrar(productos);
+renderVendedores();
+</script>
+
+<!-- ===== FOOTER INFORMACIÓN ===== -->
+<footer class="footer-info">
+  
+  <div class="footer-grid">
+
+    <div>
+      <h3>📍 Dirección</h3>
+      <p>
+        Zona Central, Av. Ayacucho # 487 entre Jordán y Calama<br>
+        Cochabamba - Bolivia
+      </p>
+
+      <a 
+      href="https://maps.app.goo.gl/wDrHsn8EZXzi6JwZA?q=Av.+Ayacucho+487+Cochabamba"
+      target="_blank"
+      class="footer-link">
+      Ver ubicación en Google Maps
+      </a>
+    </div>
+
+    <div>
+      <h3>☎ Teléfonos</h3>
+
+      <a href="tel:+59144507191" class="footer-link">
+      Oficina: 4507191
+      </a>
+
+      <a href="https://wa.me/59170341190" target="_blank" class="footer-link">
+      WhatsApp Ventas: 70341190
+      </a>
+
+      <a href="https://wa.me/59165377777" target="_blank" class="footer-link">
+      Soporte: 65377777
+      </a>
+    </div>
+
+    <div>
+      <h3>🌐 Redes</h3>
+
+      <a href="https://www.facebook.com/smartgsmbolivia/" target="_blank" class="footer-link">
+      Facebook
+      </a>
+
+      <a href="https://www.instagram.com/smart_gsm_bolivia/" target="_blank" class="footer-link">
+      Instagram
+      </a>
+
+      <a href="https://www.tiktok.com/@smartgsm_bolivia" target="_blank" class="footer-link">
+      TikTok
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-copy">
+    © 2026 Smart GSM - Todos los derechos reservados
+  </div>
+
+</footer>
+  
+</body>
+</html>
