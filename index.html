@@ -471,7 +471,7 @@ color:#9ca3af;
 </div>
 
 <script>
-const cambio = 12.00;
+const cambio = 11.85;
 let cart={};
 
 let vendedores = [
@@ -480,7 +480,6 @@ let vendedores = [
 {nombre:"Eliana", numero:"59165391513"},  
 {nombre:"Judith", numero:"59165391339"},
 {nombre:"Fabiola", numero:"59169484826"},
-{nombre:"Janine", numero:"59160751226"},
 {nombre:"Jhamila", numero:"59165391540"},  
 {nombre:"Supervisor", numero:"59170341190"}
 ];
@@ -492,7 +491,7 @@ let productos=[
 ["Apple Iphone 16 128GB",700,false,"img/iphone16.jpg"],
 ["Apple Iphone 17 256GB",820,true,"img/iphone17.jpg"],
 ["Apple Iphone 17E 256GB",635,false,"img/iphone17e.png"],  
-["Apple Iphone 17 Pro Max 256GB",1270,false,"img/iphone17promax.png"],
+["Apple Iphone 17 Pro Max 256GB",1270,true,"img/iphone17promax.png"],
 ["Apple Iphone Air 256GB",910,true,"img/iphoneair.jpg"],
 
 ["Honor Magic 8 Lite 8/256",342,false,"img/magic8lite.png"],
@@ -509,7 +508,7 @@ let productos=[
 ["Honor X6C 6/256",149,true,"img/x6c.png"],
 ["Honor X6C 8/256",167,true,"img/x6c.png"],
 ["Honor X7D 6/256",190,false,"img/x7d6.png"],
-["Honor X7D 8/256",204,false,"img/x7d8.png"],
+["Honor X7D 8/256",204,true,"img/x7d8.png"],
 ["Honor X8C 8/256",190,true,"img/honorx8c.png"],
 ["Honor X8D 8/256",240,false,"img/x8d256.png"],
 ["Honor X8D 8/512",264,true,"img/x8d512.png"],
@@ -532,6 +531,7 @@ let productos=[
 ["Realme Note 70 8/256",144,true,"img/realmenote70.png"],
 ["Realme P4 Power 5G 12/512",470,true,"img/realmep4power5g.png"],  
 
+["Samsung Galaxy A57 8/256",408,false,"img/samsungA57.png"],  
 ["Samsung Galaxy S26 Ultra 5G 12/512",1070,false,"img/samsungs26ultra.png"],
 ["Samsung Galaxy S25 Ultra 5G 12/256",805,false,"img/samsungs25ultra12256.png"],
 ["Samsung Galaxy S25 Ultra 5G 12/512",835,false,"img/samsungs25ultra12512.png"],  
@@ -542,16 +542,17 @@ let productos=[
 ["Tecno Spark Go 3 4/64",84,true,"img/sparkgo364.png"],
 ["Tecno Spark 50 4/256",135,true,"img/spark50.jpg"],
 
-["Xiaomi Pad 7 8/256",320,false,"img/pad7.png"],
+["Xiaomi 17T Pro 12/512",725,false,"img/17tpro.png"],  
+["Xiaomi Pad 7 8/256",330,false,"img/pad7.png"],
 ["Xiaomi Pad 8 Pro 8/256",530,true,"img/xiaomipad8pro8.png"],
-["Xiaomi Pad 8 Pro 12/512",615,false,"img/xiaomipad8pro12.png"],  
+["Xiaomi Pad 8 Pro 12/512",620,false,"img/xiaomipad8pro12.png"],  
 ["Xiaomi Pad Mini 12/512",468,false,"img/padmini.png"],
-["Xiaomi Poco F8 Pro 12/512",530,false,"img/pocof8pro256.png"],
+["Xiaomi Poco F8 Pro 12/512",540,false,"img/pocof8pro256.png"],
 ["Xiaomi Poco F8 Ultra 12/256",705,true,"img/pocof8ultra12.png"],
-["Xiaomi Poco F8 Ultra 16/512",730,false,"img/pocof8ultra12.png"],
+["Xiaomi Poco F8 Ultra 16/512",740,false,"img/pocof8ultra12.png"],
 ["Xiaomi Poco M7 Pro 12/512",226,false,"img/pocom7pro.png"],
 ["Xiaomi Poco M8 5G 8/512",247,false,"img/pocom8.png"],
-["Xiaomi Poco M8 Pro 5G 12/512",320,false,"img/pocom8pro12.png"],
+["Xiaomi Poco M8 Pro 5G 12/512",325,false,"img/pocom8pro12.png"],
 ["Xiaomi Poco M8 Pro 5G 8/256",295,false,"img/pocom8pro8.png"],
 ["Xiaomi Poco Pad 8/256",235,true,"img/xiaomipocopad.png"],
 ["Xiaomi Poco Pad M1 8/256",266,false,"img/pocopadm1.png"],
@@ -561,11 +562,11 @@ let productos=[
 ["Xiaomi Poco X8 Pro 8/512",355,false,"img/pocox8pro12.png"], 
 ["Xiaomi Poco X8 Pro 12/512",395,false,"img/pocox8pro12.png"],
 ["Xiaomi Poco X8 Pro Iron Man 12/512",437,false,"img/pocox8pro12ironman.png"],
-["Xiaomi Poco X8 Pro 8/256",335,false,"img/pocox8pro8.png"],
+["Xiaomi Poco X8 Pro 8/256",342,false,"img/pocox8pro8.png"],
 ["Xiaomi Poco X8 Pro Max 12/256",445,false,"img/pocox8promax.png"],
-["Xiaomi Poco X8 Pro Max 12/512",490,false,"img/pocox8promax.png"],
+["Xiaomi Poco X8 Pro Max 12/512",499,false,"img/pocox8promax.png"],
 
-["Xiaomi Redmi 15C 4/128",118,false,"img/redmi15c4.png"],
+["Xiaomi Redmi 15C 4/128",122,false,"img/redmi15c4.png"],
 ["Xiaomi Redmi 15C 4/256",122,true,"img/redmi15c4256.png"],
 ["Xiaomi Redmi 15C 8/256",135,true,"img/redmi15c8256.png"],
 ["Xiaomi Redmi Note 14 Pro 5G 8/256",240,true,"img/redminote14pro5g.png"],
@@ -584,7 +585,7 @@ let productos=[
 ["Xiaomi Redmi Pad 2 4/128",155,true,"img/redmipad24.png"],
 ["Xiaomi Redmi Pad 2 4G 8/256",225,true,"img/redmipad24g.png"],
 ["Xiaomi Redmi Pad 2 8/256",210,true,"img/redmipad24.png"],
-["Xiaomi Redmi Pad 2 Pro 8/256",300,true,"img/xiaomiredmipad2pro.png"],
+["Xiaomi Redmi Pad 2 Pro 8/256",308,false,"img/xiaomiredmipad2pro.png"],
 ["Xiaomi Redmi Pad Pro 5G 8/256",285,true,"img/xiaomipadpro5g.png"],
 ["Xiaomi Redmi Pad Pro 8/256",231,true,"img/xiaomipadpro5g.png"],
 ["Xiaomi Redmi Pad Se 8/256",170,true,"img/xiaomiredmipadse.png"]
