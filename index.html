@@ -471,7 +471,7 @@ color:#9ca3af;
 </div>
 
 <script>
-const cambio = 12.20;
+const cambio = 12.00;
 let cart={};
 
 let vendedores = [
@@ -479,7 +479,8 @@ let vendedores = [
 {nombre:"Pamela", numero:"59165391518"},  
 {nombre:"Judith", numero:"59165391339"},
 {nombre:"Fabiola", numero:"59169484826"},
-{nombre:"Jhamila", numero:"59165391540"},  
+{nombre:"Jhamila", numero:"59165391540"},
+{nombre:"Elmer", numero:"59160751226"},
 {nombre:"Supervisor", numero:"59170341190"}
 ];
 
@@ -487,14 +488,14 @@ let productos=[
 ["Alcatel 3T 10 Smart 2/32",70,false,"img/alcatel.jpg"],
 
 ["Apple Iphone 15 128GB",627,true,"img/iphone15.jpg"],
-["Apple Iphone 16 128GB",700,false,"img/iphone16.jpg"],
+["Apple Iphone 16 128GB",700,true,"img/iphone16.jpg"],
 ["Apple Iphone 17 256GB",820,true,"img/iphone17.jpg"],
 ["Apple Iphone 17E 256GB",635,false,"img/iphone17e.png"],  
 ["Apple Iphone 17 Pro Max 256GB",1270,true,"img/iphone17promax.png"],
 ["Apple Iphone Air 256GB",910,true,"img/iphoneair.jpg"],
 
-["Honor Magic 8 Lite 8/256",340,true,"img/magic8lite.png"],
-["Honor Magic 8 Lite 8/512",405,false,"img/magic8lite.png"],
+["Honor Magic 8 Lite 8/256",340,false,"img/magic8lite.png"],
+["Honor Magic 8 Lite 8/512",405,true,"img/magic8lite.png"],
 ["Honor Magic 8 Pro 12/512",1235,true,"img/honormagic8pro-Photoroom.png"],
 ["Honor Pad 10 8/256",336,true,"img/honorpad10.png"],
 ["Honor Pad X7 4/128",120,true,"img/padx7.png"],
@@ -508,17 +509,18 @@ let productos=[
 ["Honor X6C 6/256",149,true,"img/x6c.png"],
 ["Honor X6C 8/256",167,true,"img/x6c.png"],
 ["Honor X6E 4/256",175,false,"img/x6e.png"],  
-["Honor X7D 6/256",191,true,"img/x7d6.png"],
+["Honor X7D 6/256",190,false,"img/x7d6.png"],
 ["Honor X7D 8/256",204,true,"img/x7d8.png"],
+["Honor X7E 6/256",211,false,"img/x7e.png"],  
 ["Honor X8C 8/256",190,true,"img/honorx8c.png"],
-["Honor X8D 8/256",243,false,"img/x8d256.png"],
+["Honor X8D 8/256",240,false,"img/x8d256.png"],
 ["Honor X8D 8/512",264,true,"img/x8d512.png"],
-["Honor 600e 5G 8/256",435,false,"img/600e.png"],
-["Honor 600 5G 8/256",510,false,"img/6005g8256.png"],
-["Honor 600 5G 8/512",530,false,"img/6005g8512.png"],
-["Honor 600 5G 12/512",550,false,"img/6005g12512.png"],
+["Honor 600e 5G 8/256",430,true,"img/600e.png"],
+["Honor 600 5G 8/256",489,false,"img/6005g8256.png"],
+["Honor 600 5G 8/512",499,false,"img/6005g8512.png"],
+["Honor 600 5G 12/512",530,false,"img/6005g12512.png"],
 ["Honor 400 Pro 5G 12/512",545,true,"img/400pro5g12512.png"],
-["Honor 600 Pro 5G 12/512",730,false,"img/600pro5g12512.png"],  
+["Honor 600 Pro 5G 12/512",710,false,"img/600pro5g12512.png"],  
 
 ["Infinix Hot 60 Pro+ 8/256",188,true,"img/hot60proplus.png"],
 ["Infinix Note 50S 5G 8/256",210,true,"img/note50s.png"],
@@ -530,13 +532,13 @@ let productos=[
 ["Realme 16 5G 8/256",308,false,"img/165g.png"],   
 ["Realme C71 8/256",153,false,"img/c71.png"],
 ["Realme C85 8/256",212,true,"img/c85.png"],
-["Realme Note 70 4/128",110,false,"img/realmenote70.png"],
+["Realme Note 70 4/128",110,true,"img/realmenote70.png"],
 ["Realme Note 70 8/256",144,true,"img/realmenote70.png"],
 ["Realme P4 Power 5G 12/512",465,false,"img/realmep4power5g.png"],  
 ["Realme P4 Power 5G 8/256",411,false,"img/realmep4power5g.png"],  
 
-["Samsung Galaxy A57 8/256",408,true,"img/samsungA57.png"],  
-["Samsung Galaxy S26 Ultra 5G 12/512",1070,false,"img/samsungs26ultra.png"],
+["Samsung Galaxy A57 8/256",396,false,"img/samsungA57.png"],  
+["Samsung Galaxy S26 Ultra 5G 12/512",1070,true,"img/samsungs26ultra.png"],
 ["Samsung Galaxy S25 Ultra 5G 12/256",805,true,"img/samsungs25ultra12256.png"],
 ["Samsung Galaxy S25 Ultra 5G 12/512",850,false,"img/samsungs25ultra12512.png"],
 ["Samsung Galaxy S25 Ultra 5G 12/1TB",910,false,"img/samsungs25ultra121tb.png"],  
@@ -567,16 +569,16 @@ let productos=[
 ["Xiaomi Poco X7 Pro 5G 12/512",330,false,"img/pocox7pro12.png"],
 ["Xiaomi Poco X7 Pro 5G 8/256",278,true,"img/xiaomipocox7pro5g.png"],
 ["Xiaomi Poco X8 Pro 8/512",378,false,"img/pocox8pro12.png"], 
-["Xiaomi Poco X8 Pro 12/512",405,false,"img/pocox8pro12.png"],
-["Xiaomi Poco X8 Pro Iron Man 12/512",430,false,"img/pocox8pro12ironman.png"],
-["Xiaomi Poco X8 Pro 8/256",352,false,"img/pocox8pro8.png"],
+["Xiaomi Poco X8 Pro 12/512",413,false,"img/pocox8pro12.png"],
+["Xiaomi Poco X8 Pro Iron Man 12/512",400,false,"img/pocox8pro12ironman.png"],
+["Xiaomi Poco X8 Pro 8/256",354,false,"img/pocox8pro8.png"],
 ["Xiaomi Poco X8 Pro Max 12/256",445,false,"img/pocox8promax.png"],
 ["Xiaomi Poco X8 Pro Max 12/512",507,false,"img/pocox8promax.png"],
 
 ["Xiaomi Redmi 15C 4/128",122,true,"img/redmi15c4.png"],
 ["Xiaomi Redmi 15C 4/256",122,true,"img/redmi15c4256.png"],
 ["Xiaomi Redmi 15C 8/256",135,true,"img/redmi15c8256.png"],
-["Xiaomi Redmi 17 4/128",151,false,"img/redmi174128.png"],
+["Xiaomi Redmi 17 4/128",150,false,"img/redmi174128.png"],
 ["Xiaomi Redmi 17 4/256",174,false,"img/redmi174256.png"],
 ["Xiaomi Redmi 17 6/256",195,false,"img/redmi176256.png"],  
 ["Xiaomi Redmi Note 14 Pro 5G 8/256",240,true,"img/redminote14pro5g.png"],
@@ -586,11 +588,11 @@ let productos=[
 ["Xiaomi Redmi Note 14 Pro+ 8/256",272,true,"img/redminote14proplus8256.png"],
 ["Xiaomi Redmi Note 15 6/128",170,true,"img/redminote156.png"],
 ["Xiaomi Redmi Note 15 8/256",187,true,"img/redminote158.png"],
-["Xiaomi Redmi Note 15 Pro 5G 8/256",280,false,"img/redminote15pro5g.png"],
+["Xiaomi Redmi Note 15 Pro 5G 8/256",280,true,"img/redminote15pro5g.png"],
 ["Xiaomi Redmi Note 15 Pro 8/256",244,false,"img/redminote15pro.png"],
 ["Xiaomi Redmi Note 15 Pro 12/512",275,true,"img/redminote15pro.png"],
 ["Xiaomi Redmi Note 15 Pro+ 12/512",397,false,"img/redminote15proplus12.png"],
-["Xiaomi Redmi Note 15 Pro+ 8/256",334,false,"img/redminote15proplus8.png"],
+["Xiaomi Redmi Note 15 Pro+ 8/256",336,false,"img/redminote15proplus8.png"],
 
 ["Xiaomi Redmi Pad 2 4/128",155,true,"img/redmipad24.png"],
 ["Xiaomi Redmi Pad 2 4/256",204,false,"img/redmipad24256.png"],  
