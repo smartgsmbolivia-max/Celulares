@@ -564,9 +564,9 @@ button:disabled {opacity:.45;cursor:not-allowed}
 // fallback  = imagen de respaldo. Conserva la carpeta img-respaldo.
 // specs     = pares ["Característica", "Detalle"] de la ficha técnica.
 // sourceRow = fila de origen en el Excel; es solo una referencia.
-// id        = identificador del producto. No cambiar ni reordenar bloques.
+// id        = identificador del producto. No cambiar ni reutilizar identificadores.
 // Conserva comillas, comas y corchetes al editar.
-// Para añadir productos, agrega un bloque al final con el siguiente id.
+// Para añadir productos, agrega un bloque con un id nuevo (mayor que todos los existentes).
 // El Excel no se sincroniza automáticamente: estos datos son editables aquí.
 
 const productos = [
@@ -706,6 +706,16 @@ const productos = [
     "sourceRow": null
   },
   {
+    "id": 5,
+    "name": "Apple Iphone 17 Pro Max 256GB",
+    "price": 1270,
+    "soldOut": true,
+    "image": "img/iphone17promax.png",
+    "fallback": "",
+    "specs": [],
+    "sourceRow": null
+  },
+  {
     "id": 4,
     "name": "Apple Iphone 17E 256GB",
     "price": 635,
@@ -749,16 +759,6 @@ const productos = [
     "sourceRow": 15
   },
   {
-    "id": 5,
-    "name": "Apple Iphone 17 Pro Max 256GB",
-    "price": 1270,
-    "soldOut": true,
-    "image": "img/iphone17promax.png",
-    "fallback": "",
-    "specs": [],
-    "sourceRow": null
-  },
-  {
     "id": 6,
     "name": "Apple Iphone Air 256GB",
     "price": 910,
@@ -796,6 +796,231 @@ const productos = [
       ]
     ],
     "sourceRow": 16
+  },
+  {
+    "id": 32,
+    "name": "Honor 400 Pro 5G 12/512",
+    "price": 545,
+    "soldOut": true,
+    "image": "img/400pro5g12512.png",
+    "fallback": "",
+    "specs": [],
+    "sourceRow": null
+  },
+  {
+    "id": 29,
+    "name": "Honor 600 5G 8/256",
+    "price": 489,
+    "soldOut": false,
+    "image": "img/6005g8256.png",
+    "fallback": "img-respaldo/3d8daf04a81dc06c.png",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.57 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7 Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "256GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+12 MP"
+      ],
+      [
+        "Cámara frontal",
+        "50 MP"
+      ],
+      [
+        "Batería y carga",
+        "6400 mAh 80W"
+      ],
+      [
+        "Otras características",
+        "Huella Pantalla IP68/IP69K"
+      ]
+    ],
+    "sourceRow": 20
+  },
+  {
+    "id": 30,
+    "name": "Honor 600 5G 8/512",
+    "price": 499,
+    "soldOut": false,
+    "image": "img/6005g8512.png",
+    "fallback": "img-respaldo/ba85126c04032b0f.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.57 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7 Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+12 MP"
+      ],
+      [
+        "Cámara frontal",
+        "50 MP"
+      ],
+      [
+        "Batería y carga",
+        "6400 mAh 80W"
+      ],
+      [
+        "Otras características",
+        "Huella Pantalla IP68/IP69K"
+      ]
+    ],
+    "sourceRow": 21
+  },
+  {
+    "id": 31,
+    "name": "Honor 600 5G 12/512",
+    "price": 530,
+    "soldOut": false,
+    "image": "img/6005g12512.png",
+    "fallback": "img-respaldo/541eb29ff41812de.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.57 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7 Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+12 MP"
+      ],
+      [
+        "Cámara frontal",
+        "50 MP"
+      ],
+      [
+        "Batería y carga",
+        "6400 mAh 80W"
+      ],
+      [
+        "Otras características",
+        "Huella Pantalla IP68/IP69K"
+      ]
+    ],
+    "sourceRow": 19
+  },
+  {
+    "id": 33,
+    "name": "Honor 600 Pro 5G 12/512",
+    "price": 710,
+    "soldOut": false,
+    "image": "img/600pro5g12512.png",
+    "fallback": "img-respaldo/b2cfdf73a320ce87.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.57 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 8 Elite"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+50+12 MP"
+      ],
+      [
+        "Cámara frontal",
+        "50 MP"
+      ],
+      [
+        "Batería y carga",
+        "7000 mAh 80w"
+      ],
+      [
+        "Otras características",
+        "Huella Pantalla IP68/IP69K"
+      ]
+    ],
+    "sourceRow": 22
+  },
+  {
+    "id": 28,
+    "name": "Honor 600e 5G 8/256",
+    "price": 430,
+    "soldOut": true,
+    "image": "img/600e.png",
+    "fallback": "",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.6 120Hz"
+      ],
+      [
+        "Procesador",
+        "Mediatek Dimensity 7100 Elite"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "256GB"
+      ],
+      [
+        "Cámara posterior",
+        "108+5 MP"
+      ],
+      [
+        "Cámara frontal",
+        "16 MP"
+      ],
+      [
+        "Batería y carga",
+        "6250 mAh 45W"
+      ],
+      [
+        "Otras características",
+        "Huella Pantalla IP66"
+      ]
+    ],
+    "sourceRow": 23
   },
   {
     "id": 7,
@@ -934,9 +1159,9 @@ const productos = [
     "sourceRow": null
   },
   {
-    "id": 14,
-    "name": "Honor X5C 4/128",
-    "price": 83,
+    "id": 15,
+    "name": "Honor X5C 4/64",
+    "price": 78,
     "soldOut": true,
     "image": "img/honorx5c-Photoroom.png",
     "fallback": "",
@@ -944,9 +1169,9 @@ const productos = [
     "sourceRow": null
   },
   {
-    "id": 15,
-    "name": "Honor X5C 4/64",
-    "price": 78,
+    "id": 14,
+    "name": "Honor X5C 4/128",
+    "price": 83,
     "soldOut": true,
     "image": "img/honorx5c-Photoroom.png",
     "fallback": "",
@@ -1437,231 +1662,6 @@ const productos = [
     "sourceRow": 38
   },
   {
-    "id": 28,
-    "name": "Honor 600e 5G 8/256",
-    "price": 430,
-    "soldOut": true,
-    "image": "img/600e.png",
-    "fallback": "",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.6 120Hz"
-      ],
-      [
-        "Procesador",
-        "Mediatek Dimensity 7100 Elite"
-      ],
-      [
-        "Memoria RAM",
-        "8GB"
-      ],
-      [
-        "Almacenamiento",
-        "256GB"
-      ],
-      [
-        "Cámara posterior",
-        "108+5 MP"
-      ],
-      [
-        "Cámara frontal",
-        "16 MP"
-      ],
-      [
-        "Batería y carga",
-        "6250 mAh 45W"
-      ],
-      [
-        "Otras características",
-        "Huella Pantalla IP66"
-      ]
-    ],
-    "sourceRow": 23
-  },
-  {
-    "id": 29,
-    "name": "Honor 600 5G 8/256",
-    "price": 489,
-    "soldOut": false,
-    "image": "img/6005g8256.png",
-    "fallback": "img-respaldo/3d8daf04a81dc06c.png",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.57 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 7 Gen 4"
-      ],
-      [
-        "Memoria RAM",
-        "8GB"
-      ],
-      [
-        "Almacenamiento",
-        "256GB"
-      ],
-      [
-        "Cámara posterior",
-        "200+12 MP"
-      ],
-      [
-        "Cámara frontal",
-        "50 MP"
-      ],
-      [
-        "Batería y carga",
-        "6400 mAh 80W"
-      ],
-      [
-        "Otras características",
-        "Huella Pantalla IP68/IP69K"
-      ]
-    ],
-    "sourceRow": 20
-  },
-  {
-    "id": 30,
-    "name": "Honor 600 5G 8/512",
-    "price": 499,
-    "soldOut": false,
-    "image": "img/6005g8512.png",
-    "fallback": "img-respaldo/ba85126c04032b0f.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.57 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 7 Gen 4"
-      ],
-      [
-        "Memoria RAM",
-        "8GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "200+12 MP"
-      ],
-      [
-        "Cámara frontal",
-        "50 MP"
-      ],
-      [
-        "Batería y carga",
-        "6400 mAh 80W"
-      ],
-      [
-        "Otras características",
-        "Huella Pantalla IP68/IP69K"
-      ]
-    ],
-    "sourceRow": 21
-  },
-  {
-    "id": 31,
-    "name": "Honor 600 5G 12/512",
-    "price": 530,
-    "soldOut": false,
-    "image": "img/6005g12512.png",
-    "fallback": "img-respaldo/541eb29ff41812de.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.57 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 7 Gen 4"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "200+12 MP"
-      ],
-      [
-        "Cámara frontal",
-        "50 MP"
-      ],
-      [
-        "Batería y carga",
-        "6400 mAh 80W"
-      ],
-      [
-        "Otras características",
-        "Huella Pantalla IP68/IP69K"
-      ]
-    ],
-    "sourceRow": 19
-  },
-  {
-    "id": 32,
-    "name": "Honor 400 Pro 5G 12/512",
-    "price": 545,
-    "soldOut": true,
-    "image": "img/400pro5g12512.png",
-    "fallback": "",
-    "specs": [],
-    "sourceRow": null
-  },
-  {
-    "id": 33,
-    "name": "Honor 600 Pro 5G 12/512",
-    "price": 710,
-    "soldOut": false,
-    "image": "img/600pro5g12512.png",
-    "fallback": "img-respaldo/b2cfdf73a320ce87.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.57 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 8 Elite"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "200+50+12 MP"
-      ],
-      [
-        "Cámara frontal",
-        "50 MP"
-      ],
-      [
-        "Batería y carga",
-        "7000 mAh 80w"
-      ],
-      [
-        "Otras características",
-        "Huella Pantalla IP68/IP69K"
-      ]
-    ],
-    "sourceRow": 22
-  },
-  {
     "id": 34,
     "name": "Infinix Hot 60 Pro+ 8/256",
     "price": 188,
@@ -1768,6 +1768,49 @@ const productos = [
     "sourceRow": 43
   },
   {
+    "id": 40,
+    "name": "Realme 16 5G 8/256",
+    "price": 308,
+    "soldOut": false,
+    "image": "img/165g.png",
+    "fallback": "img-respaldo/40bf4c324b303508.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.57 120Hz"
+      ],
+      [
+        "Procesador",
+        "Mediatek Dimensity 6400 Turbo"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "256GB"
+      ],
+      [
+        "Cámara posterior",
+        "50 MP"
+      ],
+      [
+        "Cámara frontal",
+        "50 MP"
+      ],
+      [
+        "Batería y carga",
+        "6550 mAh 60W"
+      ],
+      [
+        "Otras características",
+        "Huella Pantalla IP68/IP69K"
+      ]
+    ],
+    "sourceRow": 44
+  },
+  {
     "id": 38,
     "name": "Realme 16 Pro 5G 12/512",
     "price": 395,
@@ -1852,49 +1895,6 @@ const productos = [
       ]
     ],
     "sourceRow": 46
-  },
-  {
-    "id": 40,
-    "name": "Realme 16 5G 8/256",
-    "price": 308,
-    "soldOut": false,
-    "image": "img/165g.png",
-    "fallback": "img-respaldo/40bf4c324b303508.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.57 120Hz"
-      ],
-      [
-        "Procesador",
-        "Mediatek Dimensity 6400 Turbo"
-      ],
-      [
-        "Memoria RAM",
-        "8GB"
-      ],
-      [
-        "Almacenamiento",
-        "256GB"
-      ],
-      [
-        "Cámara posterior",
-        "50 MP"
-      ],
-      [
-        "Cámara frontal",
-        "50 MP"
-      ],
-      [
-        "Batería y carga",
-        "6550 mAh 60W"
-      ],
-      [
-        "Otras características",
-        "Huella Pantalla IP68/IP69K"
-      ]
-    ],
-    "sourceRow": 44
   },
   {
     "id": 41,
@@ -2061,49 +2061,6 @@ const productos = [
     "sourceRow": 50
   },
   {
-    "id": 45,
-    "name": "Realme P4 Power 5G 12/512",
-    "price": 465,
-    "soldOut": false,
-    "image": "img/realmep4power5g.png",
-    "fallback": "img-respaldo/6d65d42fe4cfe723.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.8 144Hz"
-      ],
-      [
-        "Procesador",
-        "Mediatek Dimensity 7400 Ultra"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "16 MP"
-      ],
-      [
-        "Batería y carga",
-        "10001 mAh 80W"
-      ],
-      [
-        "Otras características",
-        "HUELLA PANTALLA IP69"
-      ]
-    ],
-    "sourceRow": 51
-  },
-  {
     "id": 46,
     "name": "Realme P4 Power 5G 8/256",
     "price": 411,
@@ -2147,30 +2104,20 @@ const productos = [
     "sourceRow": 52
   },
   {
-    "id": 47,
-    "name": "Samsung Galaxy A57 8/256",
-    "price": 396,
+    "id": 45,
+    "name": "Realme P4 Power 5G 12/512",
+    "price": 465,
     "soldOut": false,
-    "image": "img/samsungA57.png",
-    "fallback": "",
-    "specs": [],
-    "sourceRow": null
-  },
-  {
-    "id": 48,
-    "name": "Samsung Galaxy S26 Ultra 5G 12/512",
-    "price": 1070,
-    "soldOut": true,
-    "image": "img/samsungs26ultra.png",
-    "fallback": "",
+    "image": "img/realmep4power5g.png",
+    "fallback": "img-respaldo/6d65d42fe4cfe723.jpg",
     "specs": [
       [
         "Pantalla",
-        "Dynamic Amoled 6.9 120Hz"
+        "AMOLED 6.8 144Hz"
       ],
       [
         "Procesador",
-        "Snapdragon 8 Elite Gen 5"
+        "Mediatek Dimensity 7400 Ultra"
       ],
       [
         "Memoria RAM",
@@ -2182,7 +2129,60 @@ const productos = [
       ],
       [
         "Cámara posterior",
-        "200+10+50 MP"
+        "50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "16 MP"
+      ],
+      [
+        "Batería y carga",
+        "10001 mAh 80W"
+      ],
+      [
+        "Otras características",
+        "HUELLA PANTALLA IP69"
+      ]
+    ],
+    "sourceRow": 51
+  },
+  {
+    "id": 47,
+    "name": "Samsung Galaxy A57 8/256",
+    "price": 396,
+    "soldOut": false,
+    "image": "img/samsungA57.png",
+    "fallback": "",
+    "specs": [],
+    "sourceRow": null
+  },
+  {
+    "id": 52,
+    "name": "Samsung Galaxy S25 FE 5G 8/256",
+    "price": 570,
+    "soldOut": false,
+    "image": "img/samsungs25fe.png",
+    "fallback": "img-respaldo/d40649c53c17f55c.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.7\", 120Hz"
+      ],
+      [
+        "Procesador",
+        "Exynos 2400"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "256GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8+12 MP"
       ],
       [
         "Cámara frontal",
@@ -2190,14 +2190,57 @@ const productos = [
       ],
       [
         "Batería y carga",
-        "5000 mAh, 60W"
+        "4900 mAh, 45W"
       ],
       [
         "Otras características",
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 59
+    "sourceRow": 55
+  },
+  {
+    "id": 51,
+    "name": "Samsung Galaxy S25 Ultra 5G 12/1TB",
+    "price": 910,
+    "soldOut": false,
+    "image": "img/samsungs25ultra121tb.png",
+    "fallback": "",
+    "specs": [
+      [
+        "Pantalla",
+        "Dynamic Amoled 6.9 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 8 Elite"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "1024GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+10+50+50"
+      ],
+      [
+        "Cámara frontal",
+        "12 MP"
+      ],
+      [
+        "Batería y carga",
+        "5000 mAh, 45W"
+      ],
+      [
+        "Otras características",
+        "HUELLA PANTALLA IP68"
+      ]
+    ],
+    "sourceRow": 56
   },
   {
     "id": 49,
@@ -2286,11 +2329,11 @@ const productos = [
     "sourceRow": 58
   },
   {
-    "id": 51,
-    "name": "Samsung Galaxy S25 Ultra 5G 12/1TB",
-    "price": 910,
-    "soldOut": false,
-    "image": "img/samsungs25ultra121tb.png",
+    "id": 48,
+    "name": "Samsung Galaxy S26 Ultra 5G 12/512",
+    "price": 1070,
+    "soldOut": true,
+    "image": "img/samsungs26ultra.png",
     "fallback": "",
     "specs": [
       [
@@ -2299,7 +2342,7 @@ const productos = [
       ],
       [
         "Procesador",
-        "Snapdragon 8 Elite"
+        "Snapdragon 8 Elite Gen 5"
       ],
       [
         "Memoria RAM",
@@ -2307,11 +2350,11 @@ const productos = [
       ],
       [
         "Almacenamiento",
-        "1024GB"
+        "512GB"
       ],
       [
         "Cámara posterior",
-        "200+10+50+50"
+        "200+10+50 MP"
       ],
       [
         "Cámara frontal",
@@ -2319,57 +2362,14 @@ const productos = [
       ],
       [
         "Batería y carga",
-        "5000 mAh, 45W"
+        "5000 mAh, 60W"
       ],
       [
         "Otras características",
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 56
-  },
-  {
-    "id": 52,
-    "name": "Samsung Galaxy S25 FE 5G 8/256",
-    "price": 570,
-    "soldOut": false,
-    "image": "img/samsungs25fe.png",
-    "fallback": "img-respaldo/d40649c53c17f55c.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "Amoled 6.7\", 120Hz"
-      ],
-      [
-        "Procesador",
-        "Exynos 2400"
-      ],
-      [
-        "Memoria RAM",
-        "8GB"
-      ],
-      [
-        "Almacenamiento",
-        "256GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8+12 MP"
-      ],
-      [
-        "Cámara frontal",
-        "12 MP"
-      ],
-      [
-        "Batería y carga",
-        "4900 mAh, 45W"
-      ],
-      [
-        "Otras características",
-        "HUELLA PANTALLA IP68"
-      ]
-    ],
-    "sourceRow": 55
+    "sourceRow": 59
   },
   {
     "id": 53,
@@ -2458,11 +2458,11 @@ const productos = [
     "sourceRow": 65
   },
   {
-    "id": 55,
-    "name": "Tecno Spark Go 3 4/128",
-    "price": 98,
+    "id": 57,
+    "name": "Tecno Spark 50 4/256",
+    "price": 135,
     "soldOut": true,
-    "image": "img/sparkgo3128.png",
+    "image": "img/spark50.jpg",
     "fallback": "",
     "specs": [
       [
@@ -2471,7 +2471,7 @@ const productos = [
       ],
       [
         "Procesador",
-        "UNISOC T7250"
+        "MediaTek Helio G81"
       ],
       [
         "Memoria RAM",
@@ -2479,11 +2479,11 @@ const productos = [
       ],
       [
         "Almacenamiento",
-        "64GB"
+        "256GB"
       ],
       [
         "Cámara posterior",
-        "13 MP"
+        "50 MP"
       ],
       [
         "Cámara frontal",
@@ -2491,14 +2491,14 @@ const productos = [
       ],
       [
         "Batería y carga",
-        "5000 mAh, 15W"
+        "7000 mAh, 18W"
       ],
       [
         "Otras características",
-        "HUELLA LATERAL"
+        "HUELLA LATERAL IP64"
       ]
     ],
-    "sourceRow": 67
+    "sourceRow": 66
   },
   {
     "id": 56,
@@ -2544,11 +2544,11 @@ const productos = [
     "sourceRow": 68
   },
   {
-    "id": 57,
-    "name": "Tecno Spark 50 4/256",
-    "price": 135,
+    "id": 55,
+    "name": "Tecno Spark Go 3 4/128",
+    "price": 98,
     "soldOut": true,
-    "image": "img/spark50.jpg",
+    "image": "img/sparkgo3128.png",
     "fallback": "",
     "specs": [
       [
@@ -2557,7 +2557,7 @@ const productos = [
       ],
       [
         "Procesador",
-        "MediaTek Helio G81"
+        "UNISOC T7250"
       ],
       [
         "Memoria RAM",
@@ -2565,11 +2565,11 @@ const productos = [
       ],
       [
         "Almacenamiento",
-        "256GB"
+        "64GB"
       ],
       [
         "Cámara posterior",
-        "50 MP"
+        "13 MP"
       ],
       [
         "Cámara frontal",
@@ -2577,14 +2577,14 @@ const productos = [
       ],
       [
         "Batería y carga",
-        "7000 mAh, 18W"
+        "5000 mAh, 15W"
       ],
       [
         "Otras características",
-        "HUELLA LATERAL IP64"
+        "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 66
+    "sourceRow": 67
   },
   {
     "id": 58,
@@ -3048,49 +3048,6 @@ const productos = [
     "sourceRow": 81
   },
   {
-    "id": 69,
-    "name": "Xiaomi Poco M8 Pro 5G 12/512",
-    "price": 325,
-    "soldOut": true,
-    "image": "img/pocom8pro12.png",
-    "fallback": "",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.83 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 7s Gen 4"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "32 MP"
-      ],
-      [
-        "Batería y carga",
-        "6500 mAh 100W"
-      ],
-      [
-        "Otras características",
-        "IP68, Huella en Pantalla"
-      ]
-    ],
-    "sourceRow": 82
-  },
-  {
     "id": 70,
     "name": "Xiaomi Poco M8 Pro 5G 8/256",
     "price": 295,
@@ -3132,6 +3089,49 @@ const productos = [
       ]
     ],
     "sourceRow": 83
+  },
+  {
+    "id": 69,
+    "name": "Xiaomi Poco M8 Pro 5G 12/512",
+    "price": 325,
+    "soldOut": true,
+    "image": "img/pocom8pro12.png",
+    "fallback": "",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.83 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7s Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "6500 mAh 100W"
+      ],
+      [
+        "Otras características",
+        "IP68, Huella en Pantalla"
+      ]
+    ],
+    "sourceRow": 82
   },
   {
     "id": 71,
@@ -3259,6 +3259,49 @@ const productos = [
     "sourceRow": 86
   },
   {
+    "id": 75,
+    "name": "Xiaomi Poco X7 Pro 5G 8/256",
+    "price": 278,
+    "soldOut": true,
+    "image": "img/xiaomipocox7pro5g.png",
+    "fallback": "",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.67 120Hz"
+      ],
+      [
+        "Procesador",
+        "MEDIATEK DIMENSITY 8400 ULTRA"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "256GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "20 MP"
+      ],
+      [
+        "Batería y carga",
+        "6000 mAh, 90w"
+      ],
+      [
+        "Otras características",
+        "IP68, HUELLA PANTALLA"
+      ]
+    ],
+    "sourceRow": 88
+  },
+  {
     "id": 74,
     "name": "Xiaomi Poco X7 Pro 5G 12/512",
     "price": 330,
@@ -3302,20 +3345,20 @@ const productos = [
     "sourceRow": 87
   },
   {
-    "id": 75,
-    "name": "Xiaomi Poco X7 Pro 5G 8/256",
-    "price": 278,
-    "soldOut": true,
-    "image": "img/xiaomipocox7pro5g.png",
-    "fallback": "",
+    "id": 79,
+    "name": "Xiaomi Poco X8 Pro 8/256",
+    "price": 354,
+    "soldOut": false,
+    "image": "img/pocox8pro8.png",
+    "fallback": "img-respaldo/568d3b60d3dd3d4f.jpg",
     "specs": [
       [
         "Pantalla",
-        "Amoled 6.67 120Hz"
+        "Amoled 6.59 120Hz"
       ],
       [
         "Procesador",
-        "MEDIATEK DIMENSITY 8400 ULTRA"
+        "Mediatek Dimensity 8500 Ultra"
       ],
       [
         "Memoria RAM",
@@ -3335,14 +3378,14 @@ const productos = [
       ],
       [
         "Batería y carga",
-        "6000 mAh, 90w"
+        "6500 mAh 100W"
       ],
       [
         "Otras características",
-        "IP68, HUELLA PANTALLA"
+        "IP68 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 88
+    "sourceRow": 91
   },
   {
     "id": 76,
@@ -3472,49 +3515,6 @@ const productos = [
       ]
     ],
     "sourceRow": 90
-  },
-  {
-    "id": 79,
-    "name": "Xiaomi Poco X8 Pro 8/256",
-    "price": 354,
-    "soldOut": false,
-    "image": "img/pocox8pro8.png",
-    "fallback": "img-respaldo/568d3b60d3dd3d4f.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "Amoled 6.59 120Hz"
-      ],
-      [
-        "Procesador",
-        "Mediatek Dimensity 8500 Ultra"
-      ],
-      [
-        "Memoria RAM",
-        "8GB"
-      ],
-      [
-        "Almacenamiento",
-        "256GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "20 MP"
-      ],
-      [
-        "Batería y carga",
-        "6500 mAh 100W"
-      ],
-      [
-        "Otras características",
-        "IP68 HUELLA PANTALLA"
-      ]
-    ],
-    "sourceRow": 91
   },
   {
     "id": 80,
@@ -3881,6 +3881,16 @@ const productos = [
     "sourceRow": null
   },
   {
+    "id": 92,
+    "name": "Xiaomi Redmi Note 14 Pro+ 8/256",
+    "price": 272,
+    "soldOut": true,
+    "image": "img/redminote14proplus8256.png",
+    "fallback": "",
+    "specs": [],
+    "sourceRow": null
+  },
+  {
     "id": 90,
     "name": "Xiaomi Redmi Note 14 Pro+ 12/256",
     "price": 286,
@@ -3896,16 +3906,6 @@ const productos = [
     "price": 330,
     "soldOut": true,
     "image": "img/redminote14proplus12512.png",
-    "fallback": "",
-    "specs": [],
-    "sourceRow": null
-  },
-  {
-    "id": 92,
-    "name": "Xiaomi Redmi Note 14 Pro+ 8/256",
-    "price": 272,
-    "soldOut": true,
-    "image": "img/redminote14proplus8256.png",
     "fallback": "",
     "specs": [],
     "sourceRow": null
@@ -4126,49 +4126,6 @@ const productos = [
     "sourceRow": 103
   },
   {
-    "id": 98,
-    "name": "Xiaomi Redmi Note 15 Pro+ 12/512",
-    "price": 397,
-    "soldOut": false,
-    "image": "img/redminote15proplus12.png",
-    "fallback": "img-respaldo/b45c967f72886070.png",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.83 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 7s Gen 4"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB, NO SD"
-      ],
-      [
-        "Cámara posterior",
-        "200+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "32 MP"
-      ],
-      [
-        "Batería y carga",
-        "6500 mAh 100W"
-      ],
-      [
-        "Otras características",
-        "IP68/IP69K HUELLA PANTALLA"
-      ]
-    ],
-    "sourceRow": 106
-  },
-  {
     "id": 99,
     "name": "Xiaomi Redmi Note 15 Pro+ 8/256",
     "price": 336,
@@ -4210,6 +4167,49 @@ const productos = [
       ]
     ],
     "sourceRow": 107
+  },
+  {
+    "id": 98,
+    "name": "Xiaomi Redmi Note 15 Pro+ 12/512",
+    "price": 397,
+    "soldOut": false,
+    "image": "img/redminote15proplus12.png",
+    "fallback": "img-respaldo/b45c967f72886070.png",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.83 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7s Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB, NO SD"
+      ],
+      [
+        "Cámara posterior",
+        "200+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "6500 mAh 100W"
+      ],
+      [
+        "Otras características",
+        "IP68/IP69K HUELLA PANTALLA"
+      ]
+    ],
+    "sourceRow": 106
   },
   {
     "id": 100,
@@ -4530,6 +4530,10 @@ const productos = [
 ];
 
 // 2. CONVERSIÓN DE PRECIO: valor utilizado por todo el catálogo.
+// Orden alfabético automático, también para los modelos que añadas después.
+productos.sort((a, b) => a.name.localeCompare(b.name, 'es', { numeric: true, sensitivity: 'base' }));
+// El carrito busca por identificador y no depende de la posición en la lista.
+const productoPorId = new Map(productos.map(p => [p.id, p]));
 const cambio=12;
 // 3. VENDEDORES: número internacional, sin espacios ni signo +.
 const vendedores = [
@@ -4561,7 +4565,7 @@ function mostrar(){
   return `<article class="card" data-id="${p.id}"><div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" data-product="${p.id}"></div><p class="product-brand">${esc(p.name.split(' ')[0])}</p><h2 class="product-name">${esc(p.name)}</h2><div class="highlights">${featured.map(([k,v])=>`<span>${k==='Memoria RAM'?'RAM':'Memoria'} ${esc(v)}</span>`).join('')}</div><p class="price"><small>Bs</small> ${money(p.price)}</p>${specs}<button class="btn" data-add="${p.id}">Agregar al pedido</button><button class="btn buy" data-buy="${p.id}">Comprar por WhatsApp</button></article>`;
  }).join('')||'<div class="empty-state">No encontramos equipos con esos filtros.<button onclick="limpiarFiltros()">Ver todos los equipos</button></div>';
  $('productos').querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
-   const p=productos[Number(img.dataset.product)];
+   const p=productoPorId.get(Number(Number(img.dataset.product)));
    if(p.fallback&&!img.dataset.fallback){img.dataset.fallback='1';img.src=p.fallback;return;}
    img.parentElement.innerHTML='<div class="image-placeholder"><span aria-hidden="true">▯</span>Imagen no disponible</div>';
  }));
@@ -4575,11 +4579,11 @@ function limpiarFiltros(){$('buscador').value='';filtrar('');}
 function save(){try{localStorage.setItem('smartgsm-pedido-v2',JSON.stringify(cart));}catch{}}
 
 // Añade una unidad de un producto disponible al pedido.
-function add(id){const p=productos[id];if(!p||p.soldOut)return;cart[id]=(cart[id]||0)+1;render();notify('Equipo agregado al pedido');}
+function add(id){const p=productoPorId.get(Number(id));if(!p||p.soldOut)return;cart[id]=(cart[id]||0)+1;render();notify('Equipo agregado al pedido');}
 function comprar(id){add(id);abrirPanel();}
 function cambiar(id,v){if(!cart[id])return;cart[id]+=v;if(cart[id]<=0)delete cart[id];render();}
 function vaciar(){cart={};render();}
-function items(){return Object.entries(cart).map(([id,quantity])=>({p:productos[Number(id)],quantity}));}
+function items(){return Object.entries(cart).map(([id,quantity])=>({p:productoPorId.get(Number(Number(id))),quantity}));}
 function total(){return items().reduce((t,{p,quantity})=>t+p.price*quantity,0);}
 
 // Actualiza cantidades, subtotales, total y botones del pedido.
@@ -4636,7 +4640,7 @@ document.addEventListener('keydown', function(e) {
   }
 });
 $('panel').addEventListener('click',e=>{if(e.target===$('panel')){const r=$('panel').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)cerrarPanel();}});
-try{const saved=JSON.parse(localStorage.getItem('smartgsm-pedido-v2')||'{}');for(const [id,q] of Object.entries(saved)){if(productos[id]&&!productos[id].soldOut&&Number.isSafeInteger(q)&&q>0&&q<10000)cart[id]=q;}}catch{}
+try{const saved=JSON.parse(localStorage.getItem('smartgsm-pedido-v2')||'{}');for(const [id,q] of Object.entries(saved)){if(productoPorId.get(Number(id))&&!productoPorId.get(Number(id)).soldOut&&Number.isSafeInteger(q)&&q>0&&q<10000)cart[id]=q;}}catch{}
 renderVendedores();filtrar('');render();
 
 </script>
