@@ -4534,7 +4534,7 @@ const productos = [
 productos.sort((a, b) => a.name.localeCompare(b.name, 'es', { numeric: true, sensitivity: 'base' }));
 // El carrito busca por identificador y no depende de la posición en la lista.
 const productoPorId = new Map(productos.map(p => [p.id, p]));
-const cambio=12;
+const cambio=12.10;
 // 3. VENDEDORES: número internacional, sin espacios ni signo +.
 const vendedores = [
   { nombre: "Judith", numero: "59165391339" },
