@@ -554,7 +554,7 @@ button:disabled {opacity:.45;cursor:not-allowed}
 <script>
 // ============================================================
 // 1. PRODUCTOS: busca un modelo con Ctrl + F para editarlo.
-// Precios y estados actualizados desde Lista, 03/10/2026.
+// Precios y estados actualizados desde Lista, 12/10/2026.
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // ============================================================
 // Cada bloque entre { } corresponde a un producto.
@@ -873,7 +873,7 @@ const productos = [
     "id": 4,
     "name": "Apple Iphone 17E 256GB",
     "price": 635,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/iphone17e.png",
     "fallback": "img-respaldo/99ac06c587967443.jpg",
     "specs": [
@@ -1127,7 +1127,7 @@ const productos = [
     "id": 33,
     "name": "Honor 600 Pro 5G 12/512",
     "price": 710,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/600pro5g12512.png",
     "fallback": "img-respaldo/b2cfdf73a320ce87.jpg",
     "specs": [
@@ -1803,7 +1803,7 @@ const productos = [
         "HUELLA LATERAL, IP64"
       ]
     ],
-    "sourceRow": 35
+    "sourceRow": 34
   },
   {
     "id": 26,
@@ -1846,7 +1846,7 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 34
+    "sourceRow": 35
   },
   {
     "id": 27,
@@ -1889,7 +1889,7 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 37
+    "sourceRow": 36
   },
   {
     "id": 111,
@@ -1932,7 +1932,7 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 36
+    "sourceRow": 37
   },
   {
     "id": 34,
@@ -2258,10 +2258,10 @@ const productos = [
   {
     "id": 42,
     "name": "Realme C85 8/256",
-    "price": 212,
-    "soldOut": true,
+    "price": 234,
+    "soldOut": false,
     "image": "img/c85.png",
-    "fallback": "",
+    "fallback": "img-respaldo/fc02947de215eab9.png",
     "specs": [
       [
         "Pantalla",
@@ -2377,6 +2377,49 @@ const productos = [
     "sourceRow": 49
   },
   {
+    "id": 118,
+    "name": "Realme P4 Lite 8/256",
+    "price": 140,
+    "soldOut": false,
+    "image": "img-respaldo/bb3d87e2d446f397.png",
+    "fallback": "img-respaldo/bb3d87e2d446f397.png",
+    "specs": [
+      [
+        "Pantalla",
+        "IPS LCD 6.8 144Hz"
+      ],
+      [
+        "Procesador",
+        "Mediatek Dimensity 6300"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "256GB"
+      ],
+      [
+        "Cámara posterior",
+        "13 MP"
+      ],
+      [
+        "Cámara frontal",
+        "5 MP"
+      ],
+      [
+        "Batería y carga",
+        "7000 mAh 15W"
+      ],
+      [
+        "Otras características",
+        "Huella Lateral IP64"
+      ]
+    ],
+    "sourceRow": 50
+  },
+  {
     "id": 46,
     "name": "Realme P4 Power 5G 8/256",
     "price": 411,
@@ -2417,7 +2460,7 @@ const productos = [
         "HUELLA PANTALLA IP69"
       ]
     ],
-    "sourceRow": 51
+    "sourceRow": 52
   },
   {
     "id": 45,
@@ -2460,12 +2503,12 @@ const productos = [
         "HUELLA PANTALLA IP69"
       ]
     ],
-    "sourceRow": 50
+    "sourceRow": 51
   },
   {
     "id": 47,
     "name": "Samsung Galaxy A57 8/256",
-    "price": 396,
+    "price": 400,
     "soldOut": false,
     "image": "img/samsungA57.png",
     "fallback": "img-respaldo/a4a24b1c1386c0ae.jpg",
@@ -2503,13 +2546,13 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 53
+    "sourceRow": 54
   },
   {
     "id": 52,
     "name": "Samsung Galaxy S25 FE 5G 8/256",
-    "price": 570,
-    "soldOut": true,
+    "price": 558,
+    "soldOut": false,
     "image": "img/samsungs25fe.png",
     "fallback": "img-respaldo/d40649c53c17f55c.jpg",
     "specs": [
@@ -2546,7 +2589,7 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 54
+    "sourceRow": 55
   },
   {
     "id": 51,
@@ -2589,7 +2632,7 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 55
+    "sourceRow": 57
   },
   {
     "id": 49,
@@ -2632,15 +2675,15 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 56
+    "sourceRow": 58
   },
   {
     "id": 50,
     "name": "Samsung Galaxy S25 Ultra 5G 12/512",
     "price": 850,
-    "soldOut": true,
+    "soldOut": false,
     "image": "img/samsungs25ultra12512.png",
-    "fallback": "",
+    "fallback": "img-respaldo/70c658f804937286.png",
     "specs": [
       [
         "Pantalla",
@@ -2675,15 +2718,15 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 57
+    "sourceRow": 59
   },
   {
     "id": 48,
     "name": "Samsung Galaxy S26 Ultra 5G 12/512",
     "price": 1070,
-    "soldOut": true,
+    "soldOut": false,
     "image": "img/samsungs26ultra.png",
-    "fallback": "",
+    "fallback": "img-respaldo/e62af476a6152aec.png",
     "specs": [
       [
         "Pantalla",
@@ -2718,7 +2761,50 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 58
+    "sourceRow": 60
+  },
+  {
+    "id": 119,
+    "name": "Samsung S25 FE 8/512",
+    "price": 595,
+    "soldOut": false,
+    "image": "img-respaldo/5f91e7b39c110daa.png",
+    "fallback": "img-respaldo/5f91e7b39c110daa.png",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.7\", 120Hz"
+      ],
+      [
+        "Procesador",
+        "Exynos 2400"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8+12 MP"
+      ],
+      [
+        "Cámara frontal",
+        "12 MP"
+      ],
+      [
+        "Batería y carga",
+        "4900 mAh, 45W"
+      ],
+      [
+        "Otras características",
+        "HUELLA PANTALLA IP68"
+      ]
+    ],
+    "sourceRow": 56
   },
   {
     "id": 113,
@@ -2757,7 +2843,50 @@ const productos = [
         "7040 mAh, 25W"
       ]
     ],
-    "sourceRow": 59
+    "sourceRow": 62
+  },
+  {
+    "id": 120,
+    "name": "Samsung Tab S10 FE 8/128",
+    "price": 407,
+    "soldOut": false,
+    "image": "img-respaldo/e8c687123561b493.png",
+    "fallback": "img-respaldo/e8c687123561b493.png",
+    "specs": [
+      [
+        "Pantalla",
+        "IPS LCD 90Hz"
+      ],
+      [
+        "Procesador",
+        "Exynos 1580"
+      ],
+      [
+        "Memoria RAM",
+        "8GB"
+      ],
+      [
+        "Almacenamiento",
+        "128GB"
+      ],
+      [
+        "Cámara posterior",
+        "13 MP"
+      ],
+      [
+        "Cámara frontal",
+        "12 MP"
+      ],
+      [
+        "Batería y carga",
+        "8000 mAh, 45W"
+      ],
+      [
+        "Otras características",
+        "Huella Lateral IP68"
+      ]
+    ],
+    "sourceRow": 61
   },
   {
     "id": 53,
@@ -2800,7 +2929,7 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 61
+    "sourceRow": 64
   },
   {
     "id": 114,
@@ -2843,7 +2972,7 @@ const productos = [
         "IP64"
       ]
     ],
-    "sourceRow": 62
+    "sourceRow": 65
   },
   {
     "id": 115,
@@ -2886,7 +3015,7 @@ const productos = [
         "IP64"
       ]
     ],
-    "sourceRow": 63
+    "sourceRow": 66
   },
   {
     "id": 54,
@@ -2929,7 +3058,7 @@ const productos = [
         "HUELLA PANTALLA IP64"
       ]
     ],
-    "sourceRow": 64
+    "sourceRow": 67
   },
   {
     "id": 57,
@@ -2972,7 +3101,7 @@ const productos = [
         "HUELLA LATERAL IP64"
       ]
     ],
-    "sourceRow": 65
+    "sourceRow": 68
   },
   {
     "id": 56,
@@ -3015,7 +3144,7 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 67
+    "sourceRow": 70
   },
   {
     "id": 55,
@@ -3058,7 +3187,7 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 66
+    "sourceRow": 69
   },
   {
     "id": 58,
@@ -3101,7 +3230,7 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 69
+    "sourceRow": 72
   },
   {
     "id": 59,
@@ -3140,7 +3269,7 @@ const productos = [
         "8850 mAh, 45W"
       ]
     ],
-    "sourceRow": 70
+    "sourceRow": 73
   },
   {
     "id": 116,
@@ -3179,13 +3308,13 @@ const productos = [
         "8850 mAh, 67W"
       ]
     ],
-    "sourceRow": 71
+    "sourceRow": 74
   },
   {
     "id": 60,
     "name": "Xiaomi Pad 8 8/256",
-    "price": 409,
-    "soldOut": true,
+    "price": 410,
+    "soldOut": false,
     "image": "img/pad8.png",
     "fallback": "img-respaldo/765309a2420b61a6.jpg",
     "specs": [
@@ -3218,7 +3347,7 @@ const productos = [
         "9200 mAh, 45W"
       ]
     ],
-    "sourceRow": 72
+    "sourceRow": 75
   },
   {
     "id": 61,
@@ -3261,7 +3390,7 @@ const productos = [
         "Huella Lateral"
       ]
     ],
-    "sourceRow": 74
+    "sourceRow": 77
   },
   {
     "id": 62,
@@ -3304,7 +3433,7 @@ const productos = [
         "Huella Lateral"
       ]
     ],
-    "sourceRow": 73
+    "sourceRow": 76
   },
   {
     "id": 63,
@@ -3343,7 +3472,7 @@ const productos = [
         "7500 mAh, 67W"
       ]
     ],
-    "sourceRow": 75
+    "sourceRow": 78
   },
   {
     "id": 64,
@@ -3386,7 +3515,7 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 76
+    "sourceRow": 79
   },
   {
     "id": 65,
@@ -3429,7 +3558,7 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 77
+    "sourceRow": 80
   },
   {
     "id": 66,
@@ -3472,7 +3601,93 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 78
+    "sourceRow": 81
+  },
+  {
+    "id": 121,
+    "name": "Xiaomi Poco F9 Pro 12/512",
+    "price": 678,
+    "soldOut": false,
+    "image": "img-respaldo/36b0f76555cb0e22.png",
+    "fallback": "img-respaldo/36b0f76555cb0e22.png",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.59 185Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 8 Elite Gen 5 Serie V"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "6330 mAh 100W"
+      ],
+      [
+        "Otras características",
+        "IP68, Huella en Pantalla"
+      ]
+    ],
+    "sourceRow": 82
+  },
+  {
+    "id": 122,
+    "name": "Xiaomi Poco F9 Ultra 16/512",
+    "price": 785,
+    "soldOut": false,
+    "image": "img-respaldo/135fdac2f3e9b3df.png",
+    "fallback": "img-respaldo/135fdac2f3e9b3df.png",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.9 185Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 8 Elite Gen 5"
+      ],
+      [
+        "Memoria RAM",
+        "16GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+50+50 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "8050 mAh 100W"
+      ],
+      [
+        "Otras características",
+        "IP68, Huella en Pantalla"
+      ]
+    ],
+    "sourceRow": 83
   },
   {
     "id": 67,
@@ -3515,7 +3730,7 @@ const productos = [
         "IP64, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 79
+    "sourceRow": 84
   },
   {
     "id": 68,
@@ -3558,7 +3773,7 @@ const productos = [
         "IP65/IP66 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 80
+    "sourceRow": 85
   },
   {
     "id": 70,
@@ -3601,7 +3816,7 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 82
+    "sourceRow": 87
   },
   {
     "id": 69,
@@ -3644,7 +3859,7 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 81
+    "sourceRow": 86
   },
   {
     "id": 71,
@@ -3683,7 +3898,7 @@ const productos = [
         "10000 mAh, 33W"
       ]
     ],
-    "sourceRow": 83
+    "sourceRow": 88
   },
   {
     "id": 72,
@@ -3726,7 +3941,7 @@ const productos = [
         "STYLUS SUPPORT"
       ]
     ],
-    "sourceRow": 84
+    "sourceRow": 89
   },
   {
     "id": 73,
@@ -3769,7 +3984,7 @@ const productos = [
         "STYLUS SUPPORT MAGNETIC"
       ]
     ],
-    "sourceRow": 85
+    "sourceRow": 90
   },
   {
     "id": 75,
@@ -3812,7 +4027,7 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 87
+    "sourceRow": 92
   },
   {
     "id": 74,
@@ -3855,7 +4070,7 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 86
+    "sourceRow": 91
   },
   {
     "id": 79,
@@ -3898,7 +4113,7 @@ const productos = [
         "IP68 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 90
+    "sourceRow": 95
   },
   {
     "id": 76,
@@ -3941,7 +4156,7 @@ const productos = [
         "IP68 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 91
+    "sourceRow": 96
   },
   {
     "id": 77,
@@ -3984,12 +4199,12 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 88
+    "sourceRow": 93
   },
   {
     "id": 78,
     "name": "Xiaomi Poco X8 Pro Iron Man 12/512",
-    "price": 400,
+    "price": 420,
     "soldOut": false,
     "image": "img/pocox8pro12ironman.png",
     "fallback": "img-respaldo/2406c358962d4a62.jpg",
@@ -4027,7 +4242,7 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 89
+    "sourceRow": 94
   },
   {
     "id": 80,
@@ -4070,7 +4285,7 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 92
+    "sourceRow": 97
   },
   {
     "id": 81,
@@ -4113,7 +4328,7 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 93
+    "sourceRow": 98
   },
   {
     "id": 82,
@@ -4156,7 +4371,7 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 94
+    "sourceRow": 99
   },
   {
     "id": 83,
@@ -4199,7 +4414,7 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 95
+    "sourceRow": 100
   },
   {
     "id": 84,
@@ -4242,7 +4457,7 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 96
+    "sourceRow": 101
   },
   {
     "id": 85,
@@ -4285,7 +4500,7 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 97
+    "sourceRow": 102
   },
   {
     "id": 86,
@@ -4328,7 +4543,7 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 98
+    "sourceRow": 103
   },
   {
     "id": 87,
@@ -4371,7 +4586,7 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 99
+    "sourceRow": 104
   },
   {
     "id": 88,
@@ -4464,7 +4679,7 @@ const productos = [
         "IP66, HUELLA EN PANTALLA"
       ]
     ],
-    "sourceRow": 100
+    "sourceRow": 105
   },
   {
     "id": 94,
@@ -4507,15 +4722,15 @@ const productos = [
         "IP66, HUELLA EN PANTALLA"
       ]
     ],
-    "sourceRow": 101
+    "sourceRow": 106
   },
   {
     "id": 95,
     "name": "Xiaomi Redmi Note 15 Pro 5G 8/256",
-    "price": 280,
-    "soldOut": true,
+    "price": 310,
+    "soldOut": false,
     "image": "img/redminote15pro5g.png",
-    "fallback": "",
+    "fallback": "img-respaldo/a11409a1aeffac92.png",
     "specs": [
       [
         "Pantalla",
@@ -4550,7 +4765,7 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 103
+    "sourceRow": 108
   },
   {
     "id": 96,
@@ -4593,7 +4808,7 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 104
+    "sourceRow": 109
   },
   {
     "id": 97,
@@ -4636,7 +4851,7 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 102
+    "sourceRow": 107
   },
   {
     "id": 99,
@@ -4679,12 +4894,12 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 106
+    "sourceRow": 111
   },
   {
     "id": 98,
     "name": "Xiaomi Redmi Note 15 Pro+ 12/512",
-    "price": 397,
+    "price": 400,
     "soldOut": false,
     "image": "img/redminote15proplus12.png",
     "fallback": "img-respaldo/b45c967f72886070.png",
@@ -4722,7 +4937,7 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 105
+    "sourceRow": 110
   },
   {
     "id": 100,
@@ -4761,7 +4976,7 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 107
+    "sourceRow": 112
   },
   {
     "id": 101,
@@ -4800,7 +5015,7 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 108
+    "sourceRow": 113
   },
   {
     "id": 102,
@@ -4839,7 +5054,7 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 109
+    "sourceRow": 114
   },
   {
     "id": 117,
@@ -4878,7 +5093,7 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 110
+    "sourceRow": 115
   },
   {
     "id": 103,
@@ -4917,7 +5132,7 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 111
+    "sourceRow": 116
   },
   {
     "id": 104,
@@ -4960,7 +5175,7 @@ const productos = [
         "Stylus support (magnetic)"
       ]
     ],
-    "sourceRow": 112
+    "sourceRow": 117
   },
   {
     "id": 105,
@@ -4999,7 +5214,7 @@ const productos = [
         "10000 mAh, 33W"
       ]
     ],
-    "sourceRow": 113
+    "sourceRow": 118
   },
   {
     "id": 106,
@@ -5038,7 +5253,7 @@ const productos = [
         "10000 mAh, 33W"
       ]
     ],
-    "sourceRow": 114
+    "sourceRow": 119
   },
   {
     "id": 107,
@@ -5077,7 +5292,7 @@ const productos = [
         "8000 mAh, 18W"
       ]
     ],
-    "sourceRow": 115
+    "sourceRow": 120
   }
 ];
 
@@ -5086,7 +5301,7 @@ const productos = [
 productos.sort((a, b) => a.name.localeCompare(b.name, 'es', { numeric: true, sensitivity: 'base' }));
 // El carrito busca por identificador y no depende de la posición en la lista.
 const productoPorId = new Map(productos.map(p => [p.id, p]));
-const cambio=12.0;
+const cambio=12;
 // 3. VENDEDORES: número internacional, sin espacios ni signo +.
 const vendedores = [
   { nombre: "Judith", numero: "59165391339" },
