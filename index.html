@@ -554,7 +554,7 @@ button:disabled {opacity:.45;cursor:not-allowed}
 <script>
 // ============================================================
 // 1. PRODUCTOS: busca un modelo con Ctrl + F para editarlo.
-// Precios y estados actualizados desde Lista, 28/10/2026.
+// Precios y estados actualizados desde Lista, 05/11/2026.
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // ============================================================
@@ -917,7 +917,7 @@ const productos = [
     "id": 124,
     "name": "Apple iPhone 18 Pro Max 256GB Borgoña",
     "price": 1670,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img-respaldo/9458ea4cdd5d1872.jpg",
     "fallback": "img-respaldo/9458ea4cdd5d1872.jpg",
     "specs": [
@@ -960,7 +960,7 @@ const productos = [
     "id": 125,
     "name": "Apple iPhone 18 Pro Max 256GB Negro",
     "price": 1570,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img-respaldo/5490a2444e8b1be0.png",
     "fallback": "img-respaldo/5490a2444e8b1be0.png",
     "specs": [
@@ -1214,7 +1214,7 @@ const productos = [
     "id": 33,
     "name": "Honor 600 Pro 5G 12/512",
     "price": 720,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/600pro5g12512.png",
     "fallback": "img-respaldo/b2cfdf73a320ce87.jpg",
     "specs": [
@@ -2341,7 +2341,7 @@ const productos = [
   {
     "id": 39,
     "name": "Realme 16 Pro+ 5G 12/512",
-    "price": 525,
+    "price": 535,
     "soldOut": false,
     "image": "img/16pro+.png",
     "fallback": "img-respaldo/816e8bc13a4a13d0.jpg",
@@ -2634,7 +2634,7 @@ const productos = [
   {
     "id": 46,
     "name": "Realme P4 Power 5G 8/256",
-    "price": 403,
+    "price": 399,
     "soldOut": false,
     "image": "img/realmep4power5g.png",
     "fallback": "img-respaldo/4619ca02487456d2.jpg",
@@ -2677,7 +2677,7 @@ const productos = [
   {
     "id": 45,
     "name": "Realme P4 Power 5G 12/512",
-    "price": 458,
+    "price": 454,
     "soldOut": false,
     "image": "img/realmep4power5g.png",
     "fallback": "img-respaldo/6d65d42fe4cfe723.jpg",
@@ -4073,7 +4073,7 @@ const productos = [
     "id": 70,
     "name": "Xiaomi Poco M8 Pro 5G 8/256",
     "price": 295,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/pocom8pro8.png",
     "fallback": "img-respaldo/b62f13c58255b03b.png",
     "specs": [
@@ -4369,7 +4369,7 @@ const productos = [
   {
     "id": 79,
     "name": "Xiaomi Poco X8 Pro 8/256",
-    "price": 354,
+    "price": 382,
     "soldOut": false,
     "image": "img/pocox8pro8.png",
     "fallback": "img-respaldo/568d3b60d3dd3d4f.jpg",
@@ -4498,7 +4498,7 @@ const productos = [
   {
     "id": 78,
     "name": "Xiaomi Poco X8 Pro Iron Man 12/512",
-    "price": 415,
+    "price": 420,
     "soldOut": false,
     "image": "img/pocox8pro12ironman.png",
     "fallback": "img-respaldo/2406c358962d4a62.jpg",
@@ -5315,7 +5315,7 @@ const productos = [
     "id": 102,
     "name": "Xiaomi Redmi Pad 2 4G 4/128",
     "price": 207,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/redmipad24g.png",
     "fallback": "img-respaldo/73c9e66813b981f0.jpg",
     "specs": [
@@ -5595,7 +5595,7 @@ const productos = [
 productos.sort((a, b) => a.name.localeCompare(b.name, 'es', { numeric: true, sensitivity: 'base' }));
 // El carrito busca por identificador y no depende de la posición en la lista.
 const productoPorId = new Map(productos.map(p => [p.id, p]));
-const cambio=12.0;
+const cambio=12;
 // 3. VENDEDORES: número internacional, sin espacios ni signo +.
 const vendedores = [
   { nombre: "Judith", numero: "59165391339" },
