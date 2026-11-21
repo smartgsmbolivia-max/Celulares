@@ -552,7 +552,7 @@ button:disabled {opacity:.45;cursor:not-allowed}
 <script>
 // ============================================================
 // 1. PRODUCTOS: busca un modelo con Ctrl + F para editarlo.
-// Precios y estados actualizados desde Lista, 16/11/2026.
+// Precios y estados actualizados desde archivo 21/11/2026 V12 (encabezado interno: 18/11/2026).
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // ============================================================
@@ -835,7 +835,7 @@ const productos = [
     "id": 5,
     "name": "Apple Iphone 17 Pro Max 256GB",
     "price": 1250,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/iphone17promax.png",
     "fallback": "img-respaldo/7137da49a4b1a653.jpg",
     "specs": [
@@ -922,8 +922,8 @@ const productos = [
   {
     "id": 124,
     "name": "Apple iPhone 18 Pro Max 256GB Borgoña",
-    "price": 1670,
-    "soldOut": true,
+    "price": 1600,
+    "soldOut": false,
     "image": "img-respaldo/9458ea4cdd5d1872.jpg",
     "fallback": "img-respaldo/9458ea4cdd5d1872.jpg",
     "specs": [
@@ -1839,7 +1839,7 @@ const productos = [
     "id": 22,
     "name": "Honor X7D 6/256",
     "price": 188.5,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/x7d6.png",
     "fallback": "img-respaldo/32383a53716b7478.png",
     "specs": [
@@ -1927,7 +1927,7 @@ const productos = [
     "id": 24,
     "name": "Honor X7E 6/256",
     "price": 205,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/x7e.png",
     "fallback": "img-respaldo/09929fb9383dcfff.jpg",
     "specs": [
@@ -2103,7 +2103,7 @@ const productos = [
     "id": 111,
     "name": "Honor X9D 8/512",
     "price": 350,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img-respaldo/85f47694d6eb66e1.jpg",
     "fallback": "img-respaldo/85f47694d6eb66e1.jpg",
     "specs": [
@@ -2344,7 +2344,7 @@ const productos = [
   {
     "id": 38,
     "name": "Realme 16 Pro 5G 12/512",
-    "price": 397,
+    "price": 400,
     "soldOut": false,
     "image": "img/16.png",
     "fallback": "img-respaldo/7a1c75ebff9059e1.jpg",
@@ -2432,7 +2432,7 @@ const productos = [
   {
     "id": 41,
     "name": "Realme C71 8/256",
-    "price": 156,
+    "price": 161,
     "soldOut": false,
     "image": "img/c71.png",
     "fallback": "img-respaldo/cdbf66ea2c99e9ce.png",
@@ -2732,8 +2732,8 @@ const productos = [
   {
     "id": 47,
     "name": "Samsung A57 8/256",
-    "price": 405,
-    "soldOut": true,
+    "price": 420,
+    "soldOut": false,
     "image": "img/samsungA57.png",
     "fallback": "img-respaldo/a4a24b1c1386c0ae.jpg",
     "specs": [
@@ -3080,7 +3080,7 @@ const productos = [
   {
     "id": 113,
     "name": "Samsung Tab A11+ 8/256",
-    "price": 280,
+    "price": 285,
     "soldOut": false,
     "image": "img-respaldo/b713fc1127f6ed68.jpg",
     "fallback": "img-respaldo/b713fc1127f6ed68.jpg",
@@ -3120,8 +3120,8 @@ const productos = [
   {
     "id": 120,
     "name": "Samsung Tab S10 FE 8/128",
-    "price": 407,
-    "soldOut": true,
+    "price": 311,
+    "soldOut": false,
     "image": "img-respaldo/e8c687123561b493.png",
     "fallback": "img-respaldo/e8c687123561b493.png",
     "specs": [
@@ -3516,8 +3516,8 @@ const productos = [
   {
     "id": 58,
     "name": "Xiaomi 17T Pro 12/512",
-    "price": 690,
-    "soldOut": true,
+    "price": 695,
+    "soldOut": false,
     "image": "img/17tpro.png",
     "fallback": "",
     "specs": [
@@ -3941,7 +3941,7 @@ const productos = [
     "id": 66,
     "name": "Xiaomi Poco F8 Ultra 16/512",
     "price": 720,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/pocof8ultra12.png",
     "fallback": "img-respaldo/9b93883c708e76cf.jpg",
     "specs": [
@@ -4029,7 +4029,7 @@ const productos = [
     "id": 122,
     "name": "Xiaomi Poco F9 Ultra 16/512",
     "price": 810,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img-respaldo/135fdac2f3e9b3df.png",
     "fallback": "img-respaldo/135fdac2f3e9b3df.png",
     "specs": [
@@ -4552,7 +4552,7 @@ const productos = [
   {
     "id": 79,
     "name": "Xiaomi Poco X8 Pro 8/256",
-    "price": 382,
+    "price": 383,
     "soldOut": false,
     "image": "img/pocox8pro8.png",
     "fallback": "img-respaldo/568d3b60d3dd3d4f.jpg",
@@ -4596,7 +4596,7 @@ const productos = [
   {
     "id": 76,
     "name": "Xiaomi Poco X8 Pro 8/512",
-    "price": 395,
+    "price": 405,
     "soldOut": false,
     "image": "img/pocox8pro12.png",
     "fallback": "img-respaldo/5849fc6cb29752cb.png",
@@ -4641,7 +4641,7 @@ const productos = [
     "id": 80,
     "name": "Xiaomi Poco X8 Pro Max 12/256",
     "price": 445,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/pocox8promax.png",
     "fallback": "img-respaldo/93089500f8aeee13.png",
     "specs": [
@@ -4684,7 +4684,7 @@ const productos = [
   {
     "id": 81,
     "name": "Xiaomi Poco X8 Pro Max 12/512",
-    "price": 525,
+    "price": 527,
     "soldOut": false,
     "image": "img/pocox8promax.png",
     "fallback": "img-respaldo/fd520b9206e2ff4f.png",
@@ -5223,7 +5223,7 @@ const productos = [
   {
     "id": 96,
     "name": "Xiaomi Redmi Note 15 Pro 8/256",
-    "price": 260,
+    "price": 270,
     "soldOut": false,
     "image": "img/redminote15pro.png",
     "fallback": "img-respaldo/396cac099590a0e8.png",
