@@ -556,7 +556,7 @@ button:disabled {opacity:.45;cursor:not-allowed}
 <script>
 // ============================================================
 // 1. PRODUCTOS: busca un modelo con Ctrl + F para editarlo.
-// Precios y estados actualizados desde Lista, 24/11/2026 V12.
+// Precios y estados actualizados desde archivo 26/11/2026 V12 (encabezado interno: 24/11/2026).
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // ============================================================
@@ -1097,51 +1097,6 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 31,
-    "name": "Honor 600 5G 12/512",
-    "price": 530,
-    "soldOut": false,
-    "image": "img/6005g12512.png",
-    "fallback": "img-respaldo/541eb29ff41812de.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.57 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 7 Gen 4"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "200+12 MP"
-      ],
-      [
-        "Cámara frontal",
-        "50 MP"
-      ],
-      [
-        "Batería y carga",
-        "6400 mAh 80W"
-      ],
-      [
-        "Otros",
-        "Huella Pantalla IP68/IP69K"
-      ]
-    ],
-    "sourceRow": 20,
-    "tipo": "Celular",
-    "offerBs": 6240
-  },
-  {
     "id": 29,
     "name": "Honor 600 5G 8/256",
     "price": 489,
@@ -1232,10 +1187,55 @@ const productos = [
     "offerBs": 5760
   },
   {
+    "id": 31,
+    "name": "Honor 600 5G 12/512",
+    "price": 530,
+    "soldOut": false,
+    "image": "img/6005g12512.png",
+    "fallback": "img-respaldo/541eb29ff41812de.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.57 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7 Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+12 MP"
+      ],
+      [
+        "Cámara frontal",
+        "50 MP"
+      ],
+      [
+        "Batería y carga",
+        "6400 mAh 80W"
+      ],
+      [
+        "Otros",
+        "Huella Pantalla IP68/IP69K"
+      ]
+    ],
+    "sourceRow": 20,
+    "tipo": "Celular",
+    "offerBs": 6240
+  },
+  {
     "id": 33,
     "name": "Honor 600 Pro 5G 12/512",
     "price": 720,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/600pro5g12512.png",
     "fallback": "img-respaldo/b2cfdf73a320ce87.jpg",
     "specs": [
@@ -1547,9 +1547,9 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 14,
-    "name": "Honor X5C 4/128",
-    "price": 83,
+    "id": 15,
+    "name": "Honor X5C 4/64",
+    "price": 78,
     "soldOut": true,
     "image": "img/honorx5c-Photoroom.png",
     "fallback": "",
@@ -1558,9 +1558,9 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 15,
-    "name": "Honor X5C 4/64",
-    "price": 78,
+    "id": 14,
+    "name": "Honor X5C 4/128",
+    "price": 83,
     "soldOut": true,
     "image": "img/honorx5c-Photoroom.png",
     "fallback": "",
@@ -2650,50 +2650,6 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 45,
-    "name": "Realme P4 Power 12/512",
-    "price": 454,
-    "soldOut": false,
-    "image": "img/realmep4power5g.png",
-    "fallback": "img-respaldo/6d65d42fe4cfe723.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.8 144Hz"
-      ],
-      [
-        "Procesador",
-        "Mediatek Dimensity 7400 Ultra"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "16 MP"
-      ],
-      [
-        "Batería y carga",
-        "10001 mAh 80W"
-      ],
-      [
-        "Otros",
-        "HUELLA PANTALLA IP69"
-      ]
-    ],
-    "sourceRow": 55,
-    "tipo": "Celular"
-  },
-  {
     "id": 46,
     "name": "Realme P4 Power 8/256",
     "price": 399,
@@ -2735,6 +2691,50 @@ const productos = [
       ]
     ],
     "sourceRow": 56,
+    "tipo": "Celular"
+  },
+  {
+    "id": 45,
+    "name": "Realme P4 Power 12/512",
+    "price": 454,
+    "soldOut": false,
+    "image": "img/realmep4power5g.png",
+    "fallback": "img-respaldo/6d65d42fe4cfe723.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.8 144Hz"
+      ],
+      [
+        "Procesador",
+        "Mediatek Dimensity 7400 Ultra"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "16 MP"
+      ],
+      [
+        "Batería y carga",
+        "10001 mAh 80W"
+      ],
+      [
+        "Otros",
+        "HUELLA PANTALLA IP69"
+      ]
+    ],
+    "sourceRow": 55,
     "tipo": "Celular"
   },
   {
@@ -2870,54 +2870,10 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 51,
-    "name": "Samsung S25 Ultra 5G 12/1024",
-    "price": 910,
-    "soldOut": true,
-    "image": "img/samsungs25ultra121tb.png",
-    "fallback": "",
-    "specs": [
-      [
-        "Pantalla",
-        "Dynamic Amoled 6.9 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 8 Elite"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "1024GB"
-      ],
-      [
-        "Cámara posterior",
-        "200+10+50+50"
-      ],
-      [
-        "Cámara frontal",
-        "12 MP"
-      ],
-      [
-        "Batería y carga",
-        "5000 mAh, 45W"
-      ],
-      [
-        "Otros",
-        "HUELLA PANTALLA IP68"
-      ]
-    ],
-    "sourceRow": 61,
-    "tipo": "Celular"
-  },
-  {
     "id": 49,
     "name": "Samsung S25 Ultra 5G 12/256",
     "price": 800,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/samsungs25ultra12256.png",
     "fallback": "img-respaldo/70c658f804937286.png",
     "specs": [
@@ -3002,6 +2958,50 @@ const productos = [
     "tipo": "Celular"
   },
   {
+    "id": 51,
+    "name": "Samsung S25 Ultra 5G 12/1024",
+    "price": 910,
+    "soldOut": true,
+    "image": "img/samsungs25ultra121tb.png",
+    "fallback": "",
+    "specs": [
+      [
+        "Pantalla",
+        "Dynamic Amoled 6.9 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 8 Elite"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "1024GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+10+50+50"
+      ],
+      [
+        "Cámara frontal",
+        "12 MP"
+      ],
+      [
+        "Batería y carga",
+        "5000 mAh, 45W"
+      ],
+      [
+        "Otros",
+        "HUELLA PANTALLA IP68"
+      ]
+    ],
+    "sourceRow": 61,
+    "tipo": "Celular"
+  },
+  {
     "id": 129,
     "name": "Samsung S26 Ultra 5G 12/256",
     "price": 970,
@@ -3044,7 +3044,7 @@ const productos = [
   {
     "id": 48,
     "name": "Samsung S26 Ultra 5G 12/512",
-    "price": 1085,
+    "price": 1100,
     "soldOut": false,
     "image": "img/samsungs26ultra.png",
     "fallback": "img-respaldo/e62af476a6152aec.png",
@@ -3434,50 +3434,6 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 55,
-    "name": "Tecno Spark Go 3 4/128",
-    "price": 98,
-    "soldOut": true,
-    "image": "img/sparkgo3128.png",
-    "fallback": "",
-    "specs": [
-      [
-        "Pantalla",
-        "IPS LCD 6.74 120 Hz"
-      ],
-      [
-        "Procesador",
-        "UNISOC T7250"
-      ],
-      [
-        "Memoria RAM",
-        "4GB"
-      ],
-      [
-        "Almacenamiento",
-        "64GB"
-      ],
-      [
-        "Cámara posterior",
-        "13 MP"
-      ],
-      [
-        "Cámara frontal",
-        "8 MP"
-      ],
-      [
-        "Batería y carga",
-        "5000 mAh, 15W"
-      ],
-      [
-        "Otros",
-        "HUELLA LATERAL"
-      ]
-    ],
-    "sourceRow": 75,
-    "tipo": "Celular"
-  },
-  {
     "id": 56,
     "name": "Tecno Spark Go 3 4/64",
     "price": 84,
@@ -3519,6 +3475,50 @@ const productos = [
       ]
     ],
     "sourceRow": 76,
+    "tipo": "Celular"
+  },
+  {
+    "id": 55,
+    "name": "Tecno Spark Go 3 4/128",
+    "price": 98,
+    "soldOut": true,
+    "image": "img/sparkgo3128.png",
+    "fallback": "",
+    "specs": [
+      [
+        "Pantalla",
+        "IPS LCD 6.74 120 Hz"
+      ],
+      [
+        "Procesador",
+        "UNISOC T7250"
+      ],
+      [
+        "Memoria RAM",
+        "4GB"
+      ],
+      [
+        "Almacenamiento",
+        "64GB"
+      ],
+      [
+        "Cámara posterior",
+        "13 MP"
+      ],
+      [
+        "Cámara frontal",
+        "8 MP"
+      ],
+      [
+        "Batería y carga",
+        "5000 mAh, 15W"
+      ],
+      [
+        "Otros",
+        "HUELLA LATERAL"
+      ]
+    ],
+    "sourceRow": 75,
     "tipo": "Celular"
   },
   {
@@ -3686,50 +3686,6 @@ const productos = [
     "tipo": "Tablet"
   },
   {
-    "id": 62,
-    "name": "Xiaomi Pad 8 Pro 12/512",
-    "price": 618,
-    "soldOut": false,
-    "image": "img/xiaomipad8pro12.png",
-    "fallback": "img-respaldo/b55ea561ab1a98f5.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "IPS LCD 11,2, 144Hz"
-      ],
-      [
-        "Procesador",
-        "Sanpdragon 8 Elite"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "50 MP"
-      ],
-      [
-        "Cámara frontal",
-        "32 MP"
-      ],
-      [
-        "Batería y carga",
-        "9200 mAh, 67W"
-      ],
-      [
-        "Otros",
-        "Huella Lateral"
-      ]
-    ],
-    "sourceRow": 82,
-    "tipo": "Tablet"
-  },
-  {
     "id": 61,
     "name": "Xiaomi Pad 8 Pro 8/256",
     "price": 530,
@@ -3771,6 +3727,50 @@ const productos = [
       ]
     ],
     "sourceRow": 83,
+    "tipo": "Tablet"
+  },
+  {
+    "id": 62,
+    "name": "Xiaomi Pad 8 Pro 12/512",
+    "price": 618,
+    "soldOut": false,
+    "image": "img/xiaomipad8pro12.png",
+    "fallback": "img-respaldo/b55ea561ab1a98f5.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "IPS LCD 11,2, 144Hz"
+      ],
+      [
+        "Procesador",
+        "Sanpdragon 8 Elite"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "50 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "9200 mAh, 67W"
+      ],
+      [
+        "Otros",
+        "Huella Lateral"
+      ]
+    ],
+    "sourceRow": 82,
     "tipo": "Tablet"
   },
   {
@@ -4210,50 +4210,6 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 69,
-    "name": "Xiaomi Poco M8 Pro 5G 12/512",
-    "price": 325,
-    "soldOut": true,
-    "image": "img/pocom8pro12.png",
-    "fallback": "",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.83 120Hz"
-      ],
-      [
-        "Procesador",
-        "Snapdragon 7s Gen 4"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "32 MP"
-      ],
-      [
-        "Batería y carga",
-        "6500 mAh 100W"
-      ],
-      [
-        "Otros",
-        "IP68, Huella en Pantalla"
-      ]
-    ],
-    "sourceRow": 94,
-    "tipo": "Celular"
-  },
-  {
     "id": 70,
     "name": "Xiaomi Poco M8 Pro 5G 8/256",
     "price": 295,
@@ -4295,6 +4251,50 @@ const productos = [
       ]
     ],
     "sourceRow": 95,
+    "tipo": "Celular"
+  },
+  {
+    "id": 69,
+    "name": "Xiaomi Poco M8 Pro 5G 12/512",
+    "price": 325,
+    "soldOut": true,
+    "image": "img/pocom8pro12.png",
+    "fallback": "",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.83 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7s Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "6500 mAh 100W"
+      ],
+      [
+        "Otros",
+        "IP68, Huella en Pantalla"
+      ]
+    ],
+    "sourceRow": 94,
     "tipo": "Celular"
   },
   {
@@ -4426,50 +4426,6 @@ const productos = [
     "tipo": "Tablet"
   },
   {
-    "id": 74,
-    "name": "Xiaomi Poco X7 Pro 5G 12/512",
-    "price": 345,
-    "soldOut": false,
-    "image": "img/pocox7pro12.png",
-    "fallback": "img-respaldo/e3075d33482b14c1.png",
-    "specs": [
-      [
-        "Pantalla",
-        "Amoled 6.67 120Hz"
-      ],
-      [
-        "Procesador",
-        "MEDIATEK DIMENSITY 8400 ULTRA"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "20 MP"
-      ],
-      [
-        "Batería y carga",
-        "6000 mAh, 90w"
-      ],
-      [
-        "Otros",
-        "IP68, HUELLA PANTALLA"
-      ]
-    ],
-    "sourceRow": 99,
-    "tipo": "Celular"
-  },
-  {
     "id": 75,
     "name": "Xiaomi Poco X7 Pro 5G 8/256",
     "price": 278,
@@ -4514,20 +4470,20 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 77,
-    "name": "Xiaomi Poco X8 Pro 12/512",
-    "price": 420,
+    "id": 74,
+    "name": "Xiaomi Poco X7 Pro 5G 12/512",
+    "price": 345,
     "soldOut": false,
-    "image": "img/pocox8pro12.png",
-    "fallback": "img-respaldo/696d70fd17482faf.jpg",
+    "image": "img/pocox7pro12.png",
+    "fallback": "img-respaldo/e3075d33482b14c1.png",
     "specs": [
       [
         "Pantalla",
-        "Amoled 6.59 120Hz"
+        "Amoled 6.67 120Hz"
       ],
       [
         "Procesador",
-        "Mediatek Dimensity 8500 Ultra"
+        "MEDIATEK DIMENSITY 8400 ULTRA"
       ],
       [
         "Memoria RAM",
@@ -4547,58 +4503,14 @@ const productos = [
       ],
       [
         "Batería y carga",
-        "6500 mAh 100W"
+        "6000 mAh, 90w"
       ],
       [
         "Otros",
-        "IP68 IP69 HUELLA PANTALLA"
+        "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 101,
-    "tipo": "Celular"
-  },
-  {
-    "id": 78,
-    "name": "Xiaomi Poco X8 Pro 12/512 Iron Man",
-    "price": 420,
-    "soldOut": false,
-    "image": "img/pocox8pro12ironman.png",
-    "fallback": "img-respaldo/2406c358962d4a62.jpg",
-    "specs": [
-      [
-        "Pantalla",
-        "Amoled 6.59 120Hz"
-      ],
-      [
-        "Procesador",
-        "Mediatek Dimensity 8500 Ultra"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "50+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "20 MP"
-      ],
-      [
-        "Batería y carga",
-        "6500 mAh 100W"
-      ],
-      [
-        "Otros",
-        "IP68 IP69 HUELLA PANTALLA"
-      ]
-    ],
-    "sourceRow": 102,
+    "sourceRow": 99,
     "tipo": "Celular"
   },
   {
@@ -4687,6 +4599,94 @@ const productos = [
       ]
     ],
     "sourceRow": 104,
+    "tipo": "Celular"
+  },
+  {
+    "id": 77,
+    "name": "Xiaomi Poco X8 Pro 12/512",
+    "price": 420,
+    "soldOut": false,
+    "image": "img/pocox8pro12.png",
+    "fallback": "img-respaldo/696d70fd17482faf.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.59 120Hz"
+      ],
+      [
+        "Procesador",
+        "Mediatek Dimensity 8500 Ultra"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "20 MP"
+      ],
+      [
+        "Batería y carga",
+        "6500 mAh 100W"
+      ],
+      [
+        "Otros",
+        "IP68 IP69 HUELLA PANTALLA"
+      ]
+    ],
+    "sourceRow": 101,
+    "tipo": "Celular"
+  },
+  {
+    "id": 78,
+    "name": "Xiaomi Poco X8 Pro 12/512 Iron Man",
+    "price": 420,
+    "soldOut": false,
+    "image": "img/pocox8pro12ironman.png",
+    "fallback": "img-respaldo/2406c358962d4a62.jpg",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.59 120Hz"
+      ],
+      [
+        "Procesador",
+        "Mediatek Dimensity 8500 Ultra"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB"
+      ],
+      [
+        "Cámara posterior",
+        "50+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "20 MP"
+      ],
+      [
+        "Batería y carga",
+        "6500 mAh 100W"
+      ],
+      [
+        "Otros",
+        "IP68 IP69 HUELLA PANTALLA"
+      ]
+    ],
+    "sourceRow": 102,
     "tipo": "Celular"
   },
   {
@@ -5064,6 +5064,17 @@ const productos = [
     "tipo": "Celular"
   },
   {
+    "id": 92,
+    "name": "Xiaomi Redmi Note 14 Pro+ 8/256",
+    "price": 272,
+    "soldOut": true,
+    "image": "img/redminote14proplus8256.png",
+    "fallback": "",
+    "specs": [],
+    "sourceRow": null,
+    "tipo": "Celular"
+  },
+  {
     "id": 90,
     "name": "Xiaomi Redmi Note 14 Pro+ 12/256",
     "price": 286,
@@ -5080,17 +5091,6 @@ const productos = [
     "price": 330,
     "soldOut": true,
     "image": "img/redminote14proplus12512.png",
-    "fallback": "",
-    "specs": [],
-    "sourceRow": null,
-    "tipo": "Celular"
-  },
-  {
-    "id": 92,
-    "name": "Xiaomi Redmi Note 14 Pro+ 8/256",
-    "price": 272,
-    "soldOut": true,
-    "image": "img/redminote14proplus8256.png",
     "fallback": "",
     "specs": [],
     "sourceRow": null,
@@ -5185,50 +5185,6 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 97,
-    "name": "Xiaomi Redmi Note 15 Pro 12/512",
-    "price": 275,
-    "soldOut": true,
-    "image": "img/redminote15pro.png",
-    "fallback": "",
-    "specs": [
-      [
-        "Pantalla",
-        "AMOLED 6.77 120Hz"
-      ],
-      [
-        "Procesador",
-        "Mediatek Helio G200 Ultra"
-      ],
-      [
-        "Memoria RAM",
-        "12GB"
-      ],
-      [
-        "Almacenamiento",
-        "512GB"
-      ],
-      [
-        "Cámara posterior",
-        "200+8 MP"
-      ],
-      [
-        "Cámara frontal",
-        "32 MP"
-      ],
-      [
-        "Batería y carga",
-        "6500 mAh 45W"
-      ],
-      [
-        "Otros",
-        "IP65 HUELLA PANTALLA"
-      ]
-    ],
-    "sourceRow": 115,
-    "tipo": "Celular"
-  },
-  {
     "id": 95,
     "name": "Xiaomi Redmi Note 15 Pro 5G 8/256",
     "price": 318,
@@ -5317,20 +5273,20 @@ const productos = [
     "tipo": "Celular"
   },
   {
-    "id": 98,
-    "name": "Xiaomi Redmi Note 15 Pro+ 12/512",
-    "price": 405,
-    "soldOut": false,
-    "image": "img/redminote15proplus12.png",
-    "fallback": "img-respaldo/b45c967f72886070.png",
+    "id": 97,
+    "name": "Xiaomi Redmi Note 15 Pro 12/512",
+    "price": 275,
+    "soldOut": true,
+    "image": "img/redminote15pro.png",
+    "fallback": "",
     "specs": [
       [
         "Pantalla",
-        "AMOLED 6.83 120Hz"
+        "AMOLED 6.77 120Hz"
       ],
       [
         "Procesador",
-        "Snapdragon 7s Gen 4"
+        "Mediatek Helio G200 Ultra"
       ],
       [
         "Memoria RAM",
@@ -5338,7 +5294,7 @@ const productos = [
       ],
       [
         "Almacenamiento",
-        "512GB, NO SD"
+        "512GB"
       ],
       [
         "Cámara posterior",
@@ -5350,14 +5306,14 @@ const productos = [
       ],
       [
         "Batería y carga",
-        "6500 mAh 100W"
+        "6500 mAh 45W"
       ],
       [
         "Otros",
-        "IP68/IP69K HUELLA PANTALLA"
+        "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 118,
+    "sourceRow": 115,
     "tipo": "Celular"
   },
   {
@@ -5402,6 +5358,50 @@ const productos = [
       ]
     ],
     "sourceRow": 119,
+    "tipo": "Celular"
+  },
+  {
+    "id": 98,
+    "name": "Xiaomi Redmi Note 15 Pro+ 12/512",
+    "price": 405,
+    "soldOut": false,
+    "image": "img/redminote15proplus12.png",
+    "fallback": "img-respaldo/b45c967f72886070.png",
+    "specs": [
+      [
+        "Pantalla",
+        "AMOLED 6.83 120Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 7s Gen 4"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "512GB, NO SD"
+      ],
+      [
+        "Cámara posterior",
+        "200+8 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "6500 mAh 100W"
+      ],
+      [
+        "Otros",
+        "IP68/IP69K HUELLA PANTALLA"
+      ]
+    ],
+    "sourceRow": 118,
     "tipo": "Celular"
   },
   {
