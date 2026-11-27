@@ -481,6 +481,8 @@ button:disabled {opacity:.45;cursor:not-allowed}
 #filtros select {min-height:38px;padding:5px 10px;border:1px solid #64748b;border-radius:8px;background:#fff;color:#172033;font:inherit}
 .old-price{margin:12px 0 0;color:#64748b;font-size:15px}
 .old-price + .price{margin-top:4px;color:#047857}
+.card{position:relative}
+.offer-badge{position:absolute;top:14px;left:14px;z-index:1;padding:7px 12px;border-radius:6px;background:#047857;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;box-shadow:0 2px 6px rgba(0,0,0,.12)}
 </style>
 </head>
 
@@ -5804,7 +5806,7 @@ function mostrar(){
  $('productos').innerHTML=lista.map(p=>{
   const featured=p.specs.filter(s=>['Memoria RAM','Almacenamiento'].includes(s[0]));
   const specs=p.specs.length?`<details class="specifications"><summary>Ver especificaciones<span class="sr-only"> de ${esc(p.name)}</span></summary><dl class="spec-list">${p.specs.map(([k,v])=>`<div class="spec-row"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></details>`:'<p class="spec-pending">Consulta las características con un vendedor.</p>';
-  return `<article class="card" data-id="${p.id}"><div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" data-product="${p.id}"></div><p class="product-brand">${esc(p.name.split(' ')[0])}</p><h2 class="product-name">${esc(p.name)}</h2><div class="highlights">${featured.map(([k,v])=>`<span>${k==='Memoria RAM'?'RAM':'Memoria'} ${esc(v)}</span>`).join('')}</div>${hasOffer(p)?`<p class="old-price"><span class="sr-only">Precio habitual </span><del>Bs ${money(p.price)}</del></p>`:""}<p class="price"><span class="sr-only">${hasOffer(p)?"Precio de oferta ":"Precio "}</span><small>Bs</small> ${formatBs(priceBs(p))}</p>${specs}<button class="btn" data-add="${p.id}">Agregar al pedido</button><button class="btn buy" data-buy="${p.id}">Comprar por WhatsApp</button></article>`;
+  return `<article class="card" data-id="${p.id}">${hasOffer(p)?'<span class="offer-badge">OFERTA</span>':''}<div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" data-product="${p.id}"></div><p class="product-brand">${esc(p.name.split(' ')[0])}</p><h2 class="product-name">${esc(p.name)}</h2><div class="highlights">${featured.map(([k,v])=>`<span>${k==='Memoria RAM'?'RAM':'Memoria'} ${esc(v)}</span>`).join('')}</div>${hasOffer(p)?`<p class="old-price"><span class="sr-only">Precio habitual </span><del>Bs ${money(p.price)}</del></p>`:""}<p class="price"><span class="sr-only">${hasOffer(p)?"Precio de oferta ":"Precio "}</span><small>Bs</small> ${formatBs(priceBs(p))}</p>${specs}<button class="btn" data-add="${p.id}">Agregar al pedido</button><button class="btn buy" data-buy="${p.id}">Comprar por WhatsApp</button></article>`;
  }).join('')||'<div class="empty-state">No encontramos equipos con esos filtros.<button onclick="limpiarFiltros()">Ver todos los equipos</button></div>';
  $('productos').querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
    const p=productoPorId.get(Number(Number(img.dataset.product)));
