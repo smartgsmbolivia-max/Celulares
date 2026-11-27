@@ -476,6 +476,11 @@ button:disabled {opacity:.45;cursor:not-allowed}
 }
 @media(prefers-reduced-motion:reduce) {*,*::before,*::after {transition:none!important;scroll-behavior:auto!important}}
 
+#filtros label {display:flex;align-items:center;gap:8px;color:#fff;font-weight:600}
+#filtros {gap:12px 20px}
+#filtros select {min-height:38px;padding:5px 10px;border:1px solid #64748b;border-radius:8px;background:#fff;color:#172033;font:inherit}
+.old-price{margin:12px 0 0;color:#64748b;font-size:15px}
+.old-price + .price{margin-top:4px;color:#047857}
 </style>
 </head>
 
@@ -512,20 +517,15 @@ button:disabled {opacity:.45;cursor:not-allowed}
 <header>
 <div class="topbar">
 <div class="logo">
-<span class="brand-mark">SMART<span>GSM</span></span>
+<img src="img/logo-smart-metalizado.png" alt="Smart GSM" style="display:block;max-width:100%;width:auto">
 </div>
 <label class="search"><span class="sr-only">Buscar modelo</span><input type="search" id="buscador" placeholder="Buscar modelo o memoria…"></label>
 </div>
 
 <div id="filtros">
-<button onclick="filtrar('')" class="activo">Todos</button>
-<button onclick="filtrar('apple')">Apple</button>
-<button onclick="filtrar('honor')">Honor</button> 
-<button onclick="filtrar('infinix')">Infinix</button>
-<button onclick="filtrar('realme')">Realme</button>
-<button onclick="filtrar('samsung')">Samsung</button>
-<button onclick="filtrar('tecno')">Tecno</button>
-<button onclick="filtrar('xiaomi')">Xiaomi</button>
+<label>Marca <select id="marca"><option value="">Todas las marcas</option></select></label>
+<label>Tipo <select id="tipo"><option value="">Todos los tipos</option><option>Celular</option><option>Tablet</option></select></label>
+<button type="button" onclick="limpiarFiltros()">Limpiar filtros</button>
 </div>
 </header>
 
@@ -554,7 +554,7 @@ button:disabled {opacity:.45;cursor:not-allowed}
 <script>
 // ============================================================
 // 1. PRODUCTOS: busca un modelo con Ctrl + F para editarlo.
-// Precios y estados actualizados desde Lista, 16/11/2026.
+// Precios y estados actualizados desde Lista, 24/11/2026 V12.
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // PDV $us. × cambio, redondeado a bolivianos enteros.
 // ============================================================
@@ -610,7 +610,8 @@ const productos = [
         "5500 mAh"
       ]
     ],
-    "sourceRow": 6
+    "sourceRow": 6,
+    "tipo": "Tablet"
   },
   {
     "id": 1,
@@ -653,7 +654,8 @@ const productos = [
         "FACE ID, IP68"
       ]
     ],
-    "sourceRow": 8
+    "sourceRow": 8,
+    "tipo": "Celular"
   },
   {
     "id": 108,
@@ -696,7 +698,8 @@ const productos = [
         "FACE ID, IP68"
       ]
     ],
-    "sourceRow": 9
+    "sourceRow": 9,
+    "tipo": "Celular"
   },
   {
     "id": 2,
@@ -739,7 +742,8 @@ const productos = [
         "Face ID, IP68"
       ]
     ],
-    "sourceRow": 10
+    "sourceRow": 10,
+    "tipo": "Celular"
   },
   {
     "id": 109,
@@ -782,7 +786,8 @@ const productos = [
         "Face ID, IP68"
       ]
     ],
-    "sourceRow": 11
+    "sourceRow": 11,
+    "tipo": "Celular"
   },
   {
     "id": 3,
@@ -825,7 +830,8 @@ const productos = [
         "Face ID, IP68"
       ]
     ],
-    "sourceRow": 12
+    "sourceRow": 12,
+    "tipo": "Celular"
   },
   {
     "id": 5,
@@ -868,7 +874,8 @@ const productos = [
         "Face ID, IP68"
       ]
     ],
-    "sourceRow": 13
+    "sourceRow": 13,
+    "tipo": "Celular"
   },
   {
     "id": 4,
@@ -911,13 +918,14 @@ const productos = [
         "Face ID, IP68"
       ]
     ],
-    "sourceRow": 14
+    "sourceRow": 14,
+    "tipo": "Celular"
   },
   {
     "id": 124,
     "name": "Apple iPhone 18 Pro Max 256GB Borgoña",
-    "price": 1670,
-    "soldOut": true,
+    "price": 1650,
+    "soldOut": false,
     "image": "img-respaldo/9458ea4cdd5d1872.jpg",
     "fallback": "img-respaldo/9458ea4cdd5d1872.jpg",
     "specs": [
@@ -954,7 +962,9 @@ const productos = [
         "Face ID, IP68"
       ]
     ],
-    "sourceRow": 15
+    "sourceRow": 15,
+    "tipo": "Celular",
+    "offerBs": 17640
   },
   {
     "id": 125,
@@ -997,7 +1007,8 @@ const productos = [
         "Face ID, IP68"
       ]
     ],
-    "sourceRow": 16
+    "sourceRow": 16,
+    "tipo": "Celular"
   },
   {
     "id": 6,
@@ -1036,7 +1047,8 @@ const productos = [
         "3149 mAh"
       ]
     ],
-    "sourceRow": 17
+    "sourceRow": 17,
+    "tipo": "Celular"
   },
   {
     "id": 32,
@@ -1079,7 +1091,8 @@ const productos = [
         "Huella Pantalla IP68/IP69"
       ]
     ],
-    "sourceRow": 19
+    "sourceRow": 19,
+    "tipo": "Celular"
   },
   {
     "id": 31,
@@ -1122,7 +1135,9 @@ const productos = [
         "Huella Pantalla IP68/IP69K"
       ]
     ],
-    "sourceRow": 20
+    "sourceRow": 20,
+    "tipo": "Celular",
+    "offerBs": 6240
   },
   {
     "id": 29,
@@ -1165,7 +1180,9 @@ const productos = [
         "Huella Pantalla IP68/IP69K"
       ]
     ],
-    "sourceRow": 21
+    "sourceRow": 21,
+    "tipo": "Celular",
+    "offerBs": 5520
   },
   {
     "id": 30,
@@ -1208,7 +1225,9 @@ const productos = [
         "Huella Pantalla IP68/IP69K"
       ]
     ],
-    "sourceRow": 22
+    "sourceRow": 22,
+    "tipo": "Celular",
+    "offerBs": 5760
   },
   {
     "id": 33,
@@ -1251,7 +1270,8 @@ const productos = [
         "Huella Pantalla IP68/IP69K"
       ]
     ],
-    "sourceRow": 23
+    "sourceRow": 23,
+    "tipo": "Celular"
   },
   {
     "id": 28,
@@ -1294,7 +1314,8 @@ const productos = [
         "Huella Pantalla IP66"
       ]
     ],
-    "sourceRow": 24
+    "sourceRow": 24,
+    "tipo": "Celular"
   },
   {
     "id": 7,
@@ -1337,7 +1358,8 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 25
+    "sourceRow": 25,
+    "tipo": "Celular"
   },
   {
     "id": 110,
@@ -1380,7 +1402,8 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 26
+    "sourceRow": 26,
+    "tipo": "Celular"
   },
   {
     "id": 8,
@@ -1423,7 +1446,8 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 27
+    "sourceRow": 27,
+    "tipo": "Celular"
   },
   {
     "id": 9,
@@ -1433,7 +1457,8 @@ const productos = [
     "image": "img/honormagic8pro-Photoroom.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 10,
@@ -1443,7 +1468,8 @@ const productos = [
     "image": "img/honorpad10.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Tablet"
   },
   {
     "id": 11,
@@ -1453,7 +1479,8 @@ const productos = [
     "image": "img/padx7.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Tablet"
   },
   {
     "id": 12,
@@ -1463,7 +1490,8 @@ const productos = [
     "image": "img/padx8a.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Tablet"
   },
   {
     "id": 13,
@@ -1473,7 +1501,8 @@ const productos = [
     "image": "img/honorpadx9a.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Tablet"
   },
   {
     "id": 126,
@@ -1512,7 +1541,8 @@ const productos = [
         "6000 mAh, 15W"
       ]
     ],
-    "sourceRow": 28
+    "sourceRow": 28,
+    "tipo": "Celular"
   },
   {
     "id": 14,
@@ -1522,7 +1552,8 @@ const productos = [
     "image": "img/honorx5c-Photoroom.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 15,
@@ -1532,7 +1563,8 @@ const productos = [
     "image": "img/honorx5c-Photoroom.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 16,
@@ -1542,7 +1574,8 @@ const productos = [
     "image": "img/x5cplus.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 17,
@@ -1585,7 +1618,8 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 29
+    "sourceRow": 29,
+    "tipo": "Celular"
   },
   {
     "id": 18,
@@ -1628,7 +1662,8 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 30
+    "sourceRow": 30,
+    "tipo": "Celular"
   },
   {
     "id": 19,
@@ -1671,7 +1706,8 @@ const productos = [
         "Huella Lateral"
       ]
     ],
-    "sourceRow": 31
+    "sourceRow": 31,
+    "tipo": "Celular"
   },
   {
     "id": 20,
@@ -1714,7 +1750,8 @@ const productos = [
         "Huella Lateral"
       ]
     ],
-    "sourceRow": 32
+    "sourceRow": 32,
+    "tipo": "Celular"
   },
   {
     "id": 127,
@@ -1757,12 +1794,13 @@ const productos = [
         "HUELLA LATERAL IP64"
       ]
     ],
-    "sourceRow": 33
+    "sourceRow": 33,
+    "tipo": "Celular"
   },
   {
     "id": 21,
     "name": "Honor X6E 4/256",
-    "price": 185,
+    "price": 188,
     "soldOut": false,
     "image": "img/x6e.png",
     "fallback": "img-respaldo/9bce17c035479019.jpg",
@@ -1800,13 +1838,14 @@ const productos = [
         "HUELLA LATERAL IP64"
       ]
     ],
-    "sourceRow": 34
+    "sourceRow": 34,
+    "tipo": "Celular"
   },
   {
     "id": 22,
     "name": "Honor X7D 6/256",
     "price": 188.5,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/x7d6.png",
     "fallback": "img-respaldo/32383a53716b7478.png",
     "specs": [
@@ -1843,7 +1882,8 @@ const productos = [
         "HUELLA LATERAL IP65"
       ]
     ],
-    "sourceRow": 35
+    "sourceRow": 35,
+    "tipo": "Celular"
   },
   {
     "id": 23,
@@ -1886,13 +1926,14 @@ const productos = [
         "HUELLA LATERAL IP65"
       ]
     ],
-    "sourceRow": 36
+    "sourceRow": 36,
+    "tipo": "Celular"
   },
   {
     "id": 24,
     "name": "Honor X7E 6/256",
     "price": 205,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/x7e.png",
     "fallback": "img-respaldo/09929fb9383dcfff.jpg",
     "specs": [
@@ -1929,7 +1970,8 @@ const productos = [
         "HUELLA LATERAL IP64"
       ]
     ],
-    "sourceRow": 37
+    "sourceRow": 37,
+    "tipo": "Celular"
   },
   {
     "id": 25,
@@ -1972,7 +2014,8 @@ const productos = [
         "HUELLA LATERAL, IP64"
       ]
     ],
-    "sourceRow": 38
+    "sourceRow": 38,
+    "tipo": "Celular"
   },
   {
     "id": 26,
@@ -2015,7 +2058,8 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 39
+    "sourceRow": 39,
+    "tipo": "Celular"
   },
   {
     "id": 27,
@@ -2058,13 +2102,14 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 40
+    "sourceRow": 40,
+    "tipo": "Celular"
   },
   {
     "id": 111,
     "name": "Honor X9D 8/512",
     "price": 350,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img-respaldo/85f47694d6eb66e1.jpg",
     "fallback": "img-respaldo/85f47694d6eb66e1.jpg",
     "specs": [
@@ -2101,7 +2146,8 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 41
+    "sourceRow": 41,
+    "tipo": "Celular"
   },
   {
     "id": 34,
@@ -2111,7 +2157,8 @@ const productos = [
     "image": "img/hot60proplus.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 35,
@@ -2121,7 +2168,8 @@ const productos = [
     "image": "img/note50s.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 36,
@@ -2164,7 +2212,8 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 44
+    "sourceRow": 44,
+    "tipo": "Celular"
   },
   {
     "id": 112,
@@ -2207,7 +2256,8 @@ const productos = [
         "HUELLA PANTALLA IP69"
       ]
     ],
-    "sourceRow": 45
+    "sourceRow": 45,
+    "tipo": "Celular"
   },
   {
     "id": 37,
@@ -2250,7 +2300,8 @@ const productos = [
         "HUELLA PANTALLA IP69"
       ]
     ],
-    "sourceRow": 46
+    "sourceRow": 46,
+    "tipo": "Celular"
   },
   {
     "id": 40,
@@ -2293,12 +2344,13 @@ const productos = [
         "Huella Pantalla IP68/IP69K"
       ]
     ],
-    "sourceRow": 47
+    "sourceRow": 47,
+    "tipo": "Celular"
   },
   {
     "id": 38,
     "name": "Realme 16 Pro 5G 12/512",
-    "price": 397,
+    "price": 400,
     "soldOut": false,
     "image": "img/16.png",
     "fallback": "img-respaldo/7a1c75ebff9059e1.jpg",
@@ -2336,7 +2388,8 @@ const productos = [
         "Huella Pantalla IP68/IP69"
       ]
     ],
-    "sourceRow": 48
+    "sourceRow": 48,
+    "tipo": "Celular"
   },
   {
     "id": 39,
@@ -2379,12 +2432,13 @@ const productos = [
         "Huella Pantalla IP68/IP69K"
       ]
     ],
-    "sourceRow": 49
+    "sourceRow": 49,
+    "tipo": "Celular"
   },
   {
     "id": 41,
     "name": "Realme C71 8/256",
-    "price": 156,
+    "price": 161,
     "soldOut": false,
     "image": "img/c71.png",
     "fallback": "img-respaldo/cdbf66ea2c99e9ce.png",
@@ -2422,7 +2476,8 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 50
+    "sourceRow": 50,
+    "tipo": "Celular"
   },
   {
     "id": 42,
@@ -2465,7 +2520,8 @@ const productos = [
         "HUELLA LATERAL IP68/IP69"
       ]
     ],
-    "sourceRow": 51
+    "sourceRow": 51,
+    "tipo": "Celular"
   },
   {
     "id": 43,
@@ -2504,7 +2560,8 @@ const productos = [
         "6300 mAh 15W"
       ]
     ],
-    "sourceRow": 52
+    "sourceRow": 52,
+    "tipo": "Celular"
   },
   {
     "id": 44,
@@ -2543,7 +2600,8 @@ const productos = [
         "6300 mAh 15W"
       ]
     ],
-    "sourceRow": 53
+    "sourceRow": 53,
+    "tipo": "Celular"
   },
   {
     "id": 128,
@@ -2586,7 +2644,8 @@ const productos = [
         "Huella Lateral IP64"
       ]
     ],
-    "sourceRow": 54
+    "sourceRow": 54,
+    "tipo": "Celular"
   },
   {
     "id": 45,
@@ -2629,7 +2688,8 @@ const productos = [
         "HUELLA PANTALLA IP69"
       ]
     ],
-    "sourceRow": 55
+    "sourceRow": 55,
+    "tipo": "Celular"
   },
   {
     "id": 46,
@@ -2672,13 +2732,14 @@ const productos = [
         "HUELLA PANTALLA IP69"
       ]
     ],
-    "sourceRow": 56
+    "sourceRow": 56,
+    "tipo": "Celular"
   },
   {
     "id": 47,
     "name": "Samsung A57 8/256",
-    "price": 405,
-    "soldOut": true,
+    "price": 415,
+    "soldOut": false,
     "image": "img/samsungA57.png",
     "fallback": "img-respaldo/a4a24b1c1386c0ae.jpg",
     "specs": [
@@ -2715,7 +2776,8 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 58
+    "sourceRow": 58,
+    "tipo": "Celular"
   },
   {
     "id": 52,
@@ -2758,7 +2820,8 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 59
+    "sourceRow": 59,
+    "tipo": "Celular"
   },
   {
     "id": 119,
@@ -2801,7 +2864,8 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 60
+    "sourceRow": 60,
+    "tipo": "Celular"
   },
   {
     "id": 51,
@@ -2844,7 +2908,8 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 61
+    "sourceRow": 61,
+    "tipo": "Celular"
   },
   {
     "id": 49,
@@ -2887,13 +2952,14 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 62
+    "sourceRow": 62,
+    "tipo": "Celular"
   },
   {
     "id": 50,
     "name": "Samsung S25 Ultra 5G 12/512",
-    "price": 850,
-    "soldOut": true,
+    "price": 855,
+    "soldOut": false,
     "image": "img/samsungs25ultra12512.png",
     "fallback": "img-respaldo/70c658f804937286.png",
     "specs": [
@@ -2930,7 +2996,8 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 63
+    "sourceRow": 63,
+    "tipo": "Celular"
   },
   {
     "id": 129,
@@ -2969,13 +3036,14 @@ const productos = [
         "5000 mAh, 60W"
       ]
     ],
-    "sourceRow": 64
+    "sourceRow": 64,
+    "tipo": "Celular"
   },
   {
     "id": 48,
     "name": "Samsung S26 Ultra 5G 12/512",
-    "price": 1080,
-    "soldOut": true,
+    "price": 1085,
+    "soldOut": false,
     "image": "img/samsungs26ultra.png",
     "fallback": "img-respaldo/e62af476a6152aec.png",
     "specs": [
@@ -3012,12 +3080,13 @@ const productos = [
         "HUELLA PANTALLA IP68"
       ]
     ],
-    "sourceRow": 65
+    "sourceRow": 65,
+    "tipo": "Celular"
   },
   {
     "id": 113,
     "name": "Samsung Tab A11+ 8/256",
-    "price": 280,
+    "price": 285,
     "soldOut": false,
     "image": "img-respaldo/b713fc1127f6ed68.jpg",
     "fallback": "img-respaldo/b713fc1127f6ed68.jpg",
@@ -3051,13 +3120,14 @@ const productos = [
         "7040 mAh, 25W"
       ]
     ],
-    "sourceRow": 66
+    "sourceRow": 66,
+    "tipo": "Tablet"
   },
   {
     "id": 120,
     "name": "Samsung Tab S10 FE 8/128",
-    "price": 407,
-    "soldOut": true,
+    "price": 410,
+    "soldOut": false,
     "image": "img-respaldo/e8c687123561b493.png",
     "fallback": "img-respaldo/e8c687123561b493.png",
     "specs": [
@@ -3094,7 +3164,8 @@ const productos = [
         "Huella Lateral IP68"
       ]
     ],
-    "sourceRow": 67
+    "sourceRow": 67,
+    "tipo": "Tablet"
   },
   {
     "id": 123,
@@ -3137,7 +3208,8 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 69
+    "sourceRow": 69,
+    "tipo": "Celular"
   },
   {
     "id": 53,
@@ -3180,7 +3252,8 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 70
+    "sourceRow": 70,
+    "tipo": "Celular"
   },
   {
     "id": 114,
@@ -3223,7 +3296,8 @@ const productos = [
         "IP64"
       ]
     ],
-    "sourceRow": 71
+    "sourceRow": 71,
+    "tipo": "Celular"
   },
   {
     "id": 115,
@@ -3266,7 +3340,8 @@ const productos = [
         "IP64"
       ]
     ],
-    "sourceRow": 72
+    "sourceRow": 72,
+    "tipo": "Celular"
   },
   {
     "id": 54,
@@ -3309,7 +3384,8 @@ const productos = [
         "HUELLA PANTALLA IP64"
       ]
     ],
-    "sourceRow": 73
+    "sourceRow": 73,
+    "tipo": "Celular"
   },
   {
     "id": 57,
@@ -3352,7 +3428,8 @@ const productos = [
         "HUELLA LATERAL IP64"
       ]
     ],
-    "sourceRow": 74
+    "sourceRow": 74,
+    "tipo": "Celular"
   },
   {
     "id": 55,
@@ -3395,7 +3472,8 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 75
+    "sourceRow": 75,
+    "tipo": "Celular"
   },
   {
     "id": 56,
@@ -3438,13 +3516,14 @@ const productos = [
         "HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 76
+    "sourceRow": 76,
+    "tipo": "Celular"
   },
   {
     "id": 58,
     "name": "Xiaomi 17T Pro 12/512",
-    "price": 690,
-    "soldOut": true,
+    "price": 695,
+    "soldOut": false,
     "image": "img/17tpro.png",
     "fallback": "",
     "specs": [
@@ -3481,12 +3560,13 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 78
+    "sourceRow": 78,
+    "tipo": "Celular"
   },
   {
     "id": 59,
     "name": "Xiaomi Pad 7 8/256",
-    "price": 320,
+    "price": 330,
     "soldOut": false,
     "image": "img/pad7.png",
     "fallback": "img-respaldo/a49bd9197c003e56.png",
@@ -3520,7 +3600,8 @@ const productos = [
         "8850 mAh, 45W"
       ]
     ],
-    "sourceRow": 79
+    "sourceRow": 79,
+    "tipo": "Tablet"
   },
   {
     "id": 116,
@@ -3559,7 +3640,8 @@ const productos = [
         "8850 mAh, 67W"
       ]
     ],
-    "sourceRow": 80
+    "sourceRow": 80,
+    "tipo": "Tablet"
   },
   {
     "id": 60,
@@ -3598,7 +3680,8 @@ const productos = [
         "9200 mAh, 45W"
       ]
     ],
-    "sourceRow": 81
+    "sourceRow": 81,
+    "tipo": "Tablet"
   },
   {
     "id": 62,
@@ -3641,7 +3724,8 @@ const productos = [
         "Huella Lateral"
       ]
     ],
-    "sourceRow": 82
+    "sourceRow": 82,
+    "tipo": "Tablet"
   },
   {
     "id": 61,
@@ -3684,7 +3768,8 @@ const productos = [
         "Huella Lateral"
       ]
     ],
-    "sourceRow": 83
+    "sourceRow": 83,
+    "tipo": "Tablet"
   },
   {
     "id": 63,
@@ -3723,7 +3808,8 @@ const productos = [
         "7500 mAh, 67W"
       ]
     ],
-    "sourceRow": 84
+    "sourceRow": 84,
+    "tipo": "Tablet"
   },
   {
     "id": 130,
@@ -3766,7 +3852,8 @@ const productos = [
         "IP64, HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 85
+    "sourceRow": 85,
+    "tipo": "Celular"
   },
   {
     "id": 64,
@@ -3809,7 +3896,8 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 86
+    "sourceRow": 86,
+    "tipo": "Celular"
   },
   {
     "id": 65,
@@ -3852,13 +3940,14 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 87
+    "sourceRow": 87,
+    "tipo": "Celular"
   },
   {
     "id": 66,
     "name": "Xiaomi Poco F8 Ultra 16/512",
     "price": 720,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/pocof8ultra12.png",
     "fallback": "img-respaldo/9b93883c708e76cf.jpg",
     "specs": [
@@ -3895,7 +3984,8 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 88
+    "sourceRow": 88,
+    "tipo": "Celular"
   },
   {
     "id": 121,
@@ -3938,13 +4028,58 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 89
+    "sourceRow": 89,
+    "tipo": "Celular"
+  },
+  {
+    "id": 131,
+    "name": "Xiaomi Poco F9 Ultra 12/256",
+    "price": 743,
+    "soldOut": false,
+    "image": "img-respaldo/135fdac2f3e9b3df.png",
+    "fallback": "img-respaldo/135fdac2f3e9b3df.png",
+    "specs": [
+      [
+        "Pantalla",
+        "Amoled 6.9 185Hz"
+      ],
+      [
+        "Procesador",
+        "Snapdragon 8 Elite Gen 5"
+      ],
+      [
+        "Memoria RAM",
+        "12GB"
+      ],
+      [
+        "Almacenamiento",
+        "256GB"
+      ],
+      [
+        "Cámara posterior",
+        "200+50+50 MP"
+      ],
+      [
+        "Cámara frontal",
+        "32 MP"
+      ],
+      [
+        "Batería y carga",
+        "8049 mAh 100W"
+      ],
+      [
+        "Otros",
+        "IP68, Huella en Pantalla"
+      ]
+    ],
+    "sourceRow": 90,
+    "tipo": "Celular"
   },
   {
     "id": 122,
     "name": "Xiaomi Poco F9 Ultra 16/512",
     "price": 810,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img-respaldo/135fdac2f3e9b3df.png",
     "fallback": "img-respaldo/135fdac2f3e9b3df.png",
     "specs": [
@@ -3981,7 +4116,8 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 90
+    "sourceRow": 91,
+    "tipo": "Celular"
   },
   {
     "id": 67,
@@ -4024,7 +4160,8 @@ const productos = [
         "IP64, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 91
+    "sourceRow": 92,
+    "tipo": "Celular"
   },
   {
     "id": 68,
@@ -4067,7 +4204,8 @@ const productos = [
         "IP65/IP66 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 92
+    "sourceRow": 93,
+    "tipo": "Celular"
   },
   {
     "id": 69,
@@ -4110,7 +4248,8 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 93
+    "sourceRow": 94,
+    "tipo": "Celular"
   },
   {
     "id": 70,
@@ -4153,7 +4292,8 @@ const productos = [
         "IP68, Huella en Pantalla"
       ]
     ],
-    "sourceRow": 94
+    "sourceRow": 95,
+    "tipo": "Celular"
   },
   {
     "id": 71,
@@ -4192,7 +4332,8 @@ const productos = [
         "10000 mAh, 33W"
       ]
     ],
-    "sourceRow": 95
+    "sourceRow": 96,
+    "tipo": "Tablet"
   },
   {
     "id": 72,
@@ -4235,7 +4376,8 @@ const productos = [
         "STYLUS SUPPORT"
       ]
     ],
-    "sourceRow": 96
+    "sourceRow": 97,
+    "tipo": "Tablet"
   },
   {
     "id": 73,
@@ -4278,7 +4420,8 @@ const productos = [
         "STYLUS SUPPORT MAGNETIC"
       ]
     ],
-    "sourceRow": 97
+    "sourceRow": 98,
+    "tipo": "Tablet"
   },
   {
     "id": 74,
@@ -4321,7 +4464,8 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 98
+    "sourceRow": 99,
+    "tipo": "Celular"
   },
   {
     "id": 75,
@@ -4364,7 +4508,8 @@ const productos = [
         "IP68, HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 99
+    "sourceRow": 100,
+    "tipo": "Celular"
   },
   {
     "id": 77,
@@ -4407,7 +4552,8 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 100
+    "sourceRow": 101,
+    "tipo": "Celular"
   },
   {
     "id": 78,
@@ -4450,12 +4596,13 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 101
+    "sourceRow": 102,
+    "tipo": "Celular"
   },
   {
     "id": 79,
     "name": "Xiaomi Poco X8 Pro 8/256",
-    "price": 382,
+    "price": 383,
     "soldOut": false,
     "image": "img/pocox8pro8.png",
     "fallback": "img-respaldo/568d3b60d3dd3d4f.jpg",
@@ -4493,12 +4640,13 @@ const productos = [
         "IP68 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 102
+    "sourceRow": 103,
+    "tipo": "Celular"
   },
   {
     "id": 76,
     "name": "Xiaomi Poco X8 Pro 8/512",
-    "price": 395,
+    "price": 405,
     "soldOut": false,
     "image": "img/pocox8pro12.png",
     "fallback": "img-respaldo/5849fc6cb29752cb.png",
@@ -4536,13 +4684,14 @@ const productos = [
         "IP68 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 103
+    "sourceRow": 104,
+    "tipo": "Celular"
   },
   {
     "id": 80,
     "name": "Xiaomi Poco X8 Pro Max 12/256",
     "price": 445,
-    "soldOut": false,
+    "soldOut": true,
     "image": "img/pocox8promax.png",
     "fallback": "img-respaldo/93089500f8aeee13.png",
     "specs": [
@@ -4579,12 +4728,13 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 104
+    "sourceRow": 105,
+    "tipo": "Celular"
   },
   {
     "id": 81,
     "name": "Xiaomi Poco X8 Pro Max 12/512",
-    "price": 525,
+    "price": 527,
     "soldOut": false,
     "image": "img/pocox8promax.png",
     "fallback": "img-respaldo/fd520b9206e2ff4f.png",
@@ -4622,7 +4772,8 @@ const productos = [
         "IP68 IP69 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 105
+    "sourceRow": 106,
+    "tipo": "Celular"
   },
   {
     "id": 82,
@@ -4665,7 +4816,8 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 106
+    "sourceRow": 107,
+    "tipo": "Celular"
   },
   {
     "id": 83,
@@ -4708,7 +4860,8 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 107
+    "sourceRow": 108,
+    "tipo": "Celular"
   },
   {
     "id": 84,
@@ -4751,7 +4904,8 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 108
+    "sourceRow": 109,
+    "tipo": "Celular"
   },
   {
     "id": 85,
@@ -4794,7 +4948,8 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 109
+    "sourceRow": 110,
+    "tipo": "Celular"
   },
   {
     "id": 86,
@@ -4837,7 +4992,8 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 110
+    "sourceRow": 111,
+    "tipo": "Celular"
   },
   {
     "id": 87,
@@ -4880,7 +5036,8 @@ const productos = [
         "IP64 HUELLA LATERAL"
       ]
     ],
-    "sourceRow": 111
+    "sourceRow": 112,
+    "tipo": "Celular"
   },
   {
     "id": 88,
@@ -4890,7 +5047,8 @@ const productos = [
     "image": "img/redminote14pro5g.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 89,
@@ -4900,7 +5058,8 @@ const productos = [
     "image": "img/redminote14pro.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 90,
@@ -4910,7 +5069,8 @@ const productos = [
     "image": "img/redminote14proplus12256.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 91,
@@ -4920,7 +5080,8 @@ const productos = [
     "image": "img/redminote14proplus12512.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 92,
@@ -4930,7 +5091,8 @@ const productos = [
     "image": "img/redminote14proplus8256.png",
     "fallback": "",
     "specs": [],
-    "sourceRow": null
+    "sourceRow": null,
+    "tipo": "Celular"
   },
   {
     "id": 93,
@@ -4973,7 +5135,8 @@ const productos = [
         "IP66, HUELLA EN PANTALLA"
       ]
     ],
-    "sourceRow": 112
+    "sourceRow": 113,
+    "tipo": "Celular"
   },
   {
     "id": 94,
@@ -5016,7 +5179,8 @@ const productos = [
         "IP66, HUELLA EN PANTALLA"
       ]
     ],
-    "sourceRow": 113
+    "sourceRow": 114,
+    "tipo": "Celular"
   },
   {
     "id": 97,
@@ -5059,7 +5223,8 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 114
+    "sourceRow": 115,
+    "tipo": "Celular"
   },
   {
     "id": 95,
@@ -5102,12 +5267,13 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 115
+    "sourceRow": 116,
+    "tipo": "Celular"
   },
   {
     "id": 96,
     "name": "Xiaomi Redmi Note 15 Pro 8/256",
-    "price": 260,
+    "price": 270,
     "soldOut": false,
     "image": "img/redminote15pro.png",
     "fallback": "img-respaldo/396cac099590a0e8.png",
@@ -5145,7 +5311,8 @@ const productos = [
         "IP65 HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 116
+    "sourceRow": 117,
+    "tipo": "Celular"
   },
   {
     "id": 98,
@@ -5188,7 +5355,8 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 117
+    "sourceRow": 118,
+    "tipo": "Celular"
   },
   {
     "id": 99,
@@ -5231,7 +5399,8 @@ const productos = [
         "IP68/IP69K HUELLA PANTALLA"
       ]
     ],
-    "sourceRow": 118
+    "sourceRow": 119,
+    "tipo": "Celular"
   },
   {
     "id": 100,
@@ -5270,7 +5439,8 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 119
+    "sourceRow": 120,
+    "tipo": "Tablet"
   },
   {
     "id": 101,
@@ -5309,7 +5479,8 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 120
+    "sourceRow": 121,
+    "tipo": "Tablet"
   },
   {
     "id": 102,
@@ -5348,7 +5519,8 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 121
+    "sourceRow": 122,
+    "tipo": "Tablet"
   },
   {
     "id": 117,
@@ -5387,7 +5559,8 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 122
+    "sourceRow": 123,
+    "tipo": "Tablet"
   },
   {
     "id": 103,
@@ -5426,7 +5599,8 @@ const productos = [
         "9000 mAh, 18W"
       ]
     ],
-    "sourceRow": 123
+    "sourceRow": 124,
+    "tipo": "Tablet"
   },
   {
     "id": 104,
@@ -5469,7 +5643,8 @@ const productos = [
         "Stylus support (magnetic)"
       ]
     ],
-    "sourceRow": 124
+    "sourceRow": 125,
+    "tipo": "Tablet"
   },
   {
     "id": 105,
@@ -5508,7 +5683,8 @@ const productos = [
         "10000 mAh, 33W"
       ]
     ],
-    "sourceRow": 125
+    "sourceRow": 126,
+    "tipo": "Tablet"
   },
   {
     "id": 106,
@@ -5547,7 +5723,8 @@ const productos = [
         "10000 mAh, 33W"
       ]
     ],
-    "sourceRow": 126
+    "sourceRow": 127,
+    "tipo": "Tablet"
   },
   {
     "id": 107,
@@ -5586,7 +5763,8 @@ const productos = [
         "8000 mAh, 18W"
       ]
     ],
-    "sourceRow": 127
+    "sourceRow": 128,
+    "tipo": "Tablet"
   }
 ];
 
@@ -5608,22 +5786,25 @@ const vendedores = [
 // 4. FUNCIONAMIENTO DEL CATÁLOGO.
 // Para cambiar precios o características, edita los productos de arriba.
 
-let cart={},marcaActiva='',noticeTimer;
+let cart={},noticeTimer;
 const $=id=>document.getElementById(id);
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=v=>Math.round(v*cambio).toLocaleString('es-BO');
+const formatBs=v=>Math.round(v).toLocaleString('es-BO');
+const hasOffer=p=>Number.isFinite(p.offerBs)&&p.offerBs>0&&p.offerBs<Math.round(p.price*cambio);
+const priceBs=p=>hasOffer(p)?p.offerBs:Math.round(p.price*cambio);
 const norm=v=>v.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 function notify(text){$('notificacion').textContent=text;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notificacion').textContent='',2800);}
 
 // Dibuja los productos disponibles, sus imágenes y fichas técnicas.
 function mostrar(){
  const query=norm($('buscador').value.trim());
- const lista=productos.filter(p=>!p.soldOut&&(!marcaActiva||norm(p.name).includes(marcaActiva))&&norm(p.name).includes(query));
+ const lista=productos.filter(p=>!p.soldOut&&(!$('marca').value||p.name.split(' ')[0]===$('marca').value)&&(!$('tipo').value||p.tipo===$('tipo').value)&&norm(p.name).includes(query));
  $('resultados').textContent=`${lista.length} ${lista.length===1?'equipo disponible':'equipos disponibles'}`;
  $('productos').innerHTML=lista.map(p=>{
   const featured=p.specs.filter(s=>['Memoria RAM','Almacenamiento'].includes(s[0]));
   const specs=p.specs.length?`<details class="specifications"><summary>Ver especificaciones<span class="sr-only"> de ${esc(p.name)}</span></summary><dl class="spec-list">${p.specs.map(([k,v])=>`<div class="spec-row"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></details>`:'<p class="spec-pending">Consulta las características con un vendedor.</p>';
-  return `<article class="card" data-id="${p.id}"><div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" data-product="${p.id}"></div><p class="product-brand">${esc(p.name.split(' ')[0])}</p><h2 class="product-name">${esc(p.name)}</h2><div class="highlights">${featured.map(([k,v])=>`<span>${k==='Memoria RAM'?'RAM':'Memoria'} ${esc(v)}</span>`).join('')}</div><p class="price"><small>Bs</small> ${money(p.price)}</p>${specs}<button class="btn" data-add="${p.id}">Agregar al pedido</button><button class="btn buy" data-buy="${p.id}">Comprar por WhatsApp</button></article>`;
+  return `<article class="card" data-id="${p.id}"><div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" data-product="${p.id}"></div><p class="product-brand">${esc(p.name.split(' ')[0])}</p><h2 class="product-name">${esc(p.name)}</h2><div class="highlights">${featured.map(([k,v])=>`<span>${k==='Memoria RAM'?'RAM':'Memoria'} ${esc(v)}</span>`).join('')}</div>${hasOffer(p)?`<p class="old-price"><span class="sr-only">Precio habitual </span><del>Bs ${money(p.price)}</del></p>`:""}<p class="price"><span class="sr-only">${hasOffer(p)?"Precio de oferta ":"Precio "}</span><small>Bs</small> ${formatBs(priceBs(p))}</p>${specs}<button class="btn" data-add="${p.id}">Agregar al pedido</button><button class="btn buy" data-buy="${p.id}">Comprar por WhatsApp</button></article>`;
  }).join('')||'<div class="empty-state">No encontramos equipos con esos filtros.<button onclick="limpiarFiltros()">Ver todos los equipos</button></div>';
  $('productos').querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
    const p=productoPorId.get(Number(Number(img.dataset.product)));
@@ -5632,9 +5813,16 @@ function mostrar(){
  }));
 }
 
-// Combina la marca seleccionada con el texto del buscador.
-function filtrar(marca){marcaActiva=marca;document.querySelectorAll('#filtros button').forEach(b=>{const active=marca?norm(b.textContent)===marca:b.textContent==='Todos';b.classList.toggle('activo',active);b.setAttribute('aria-pressed',String(active));});mostrar();}
-function limpiarFiltros(){$('buscador').value='';filtrar('');}
+const marcas = [...new Set(productos.filter(p => !p.soldOut).map(p => p.name.split(' ')[0]))];
+for (const marca of marcas.sort((a,b) => a.localeCompare(b,'es'))) {
+ $('marca').add(new Option(marca, marca));
+}
+$('marca').addEventListener('change', mostrar);
+$('tipo').addEventListener('change', mostrar);
+function limpiarFiltros(){
+ for (const id of ['buscador','marca','tipo']) $(id).value='';
+ mostrar();
+}
 
 // Guarda el pedido en este navegador para conservarlo al recargar.
 function save(){try{localStorage.setItem('smartgsm-pedido-v2',JSON.stringify(cart));}catch{}}
@@ -5645,12 +5833,12 @@ function comprar(id){add(id);abrirPanel();}
 function cambiar(id,v){if(!cart[id])return;cart[id]+=v;if(cart[id]<=0)delete cart[id];render();}
 function vaciar(){cart={};render();}
 function items(){return Object.entries(cart).map(([id,quantity])=>({p:productoPorId.get(Number(Number(id))),quantity}));}
-function total(){return items().reduce((t,{p,quantity})=>t+p.price*quantity,0);}
+function total(){return items().reduce((t,{p,quantity})=>t+priceBs(p)*quantity,0);}
 
 // Actualiza cantidades, subtotales, total y botones del pedido.
 function render(){
- $('lista').innerHTML=items().map(({p,quantity})=>`<div class="item"><div class="item-name">${esc(p.name)}</div><div class="controls"><button onclick="cambiar(${p.id},-1)" aria-label="Quitar una unidad de ${esc(p.name)}">−</button><span>${quantity}</span><button onclick="cambiar(${p.id},1)" aria-label="Añadir una unidad de ${esc(p.name)}">+</button></div><div>Bs ${money(p.price*quantity)}</div></div>`).join('')||'<p class="spec-pending">Tu pedido está vacío. Agrega un equipo para comenzar.</p>';
- $('total').textContent=money(total());$('contador').textContent=items().reduce((t,i)=>t+i.quantity,0);
+ $('lista').innerHTML=items().map(({p,quantity})=>`<div class="item"><div class="item-name">${esc(p.name)}</div><div class="controls"><button onclick="cambiar(${p.id},-1)" aria-label="Quitar una unidad de ${esc(p.name)}">−</button><span>${quantity}</span><button onclick="cambiar(${p.id},1)" aria-label="Añadir una unidad de ${esc(p.name)}">+</button></div><div>Bs ${formatBs(priceBs(p)*quantity)}</div></div>`).join('')||'<p class="spec-pending">Tu pedido está vacío. Agrega un equipo para comenzar.</p>';
+ $('total').textContent=formatBs(total());$('contador').textContent=items().reduce((t,i)=>t+i.quantity,0);
  document.querySelectorAll('#panel .whatsapp,#panel .ver,#panel .vaciar').forEach(b=>b.disabled=items().length===0);save();
 }
 // Compatibilidad del pedido con navegadores sin dialog.showModal().
@@ -5679,7 +5867,7 @@ function cerrarPanel() {
   if (focoAnterior) focoAnterior.focus();
 }
 function togglePanel(){$('panel').hasAttribute('open')?cerrarPanel():abrirPanel();}
-function pedidoTexto(nombre){return `🛒 *SMART GSM*\n\nHola ${nombre}, quiero realizar el siguiente pedido:\n\n`+items().map(({p,quantity})=>`📱 ${p.name} x${quantity} — Bs ${money(p.price*quantity)}`).join('\n')+`\n\nTotal: Bs ${money(total())}`;}
+function pedidoTexto(nombre){return `🛒 *SMART GSM*\n\nHola ${nombre}, quiero realizar el siguiente pedido:\n\n`+items().map(({p,quantity})=>`📱 ${p.name} x${quantity} — Bs ${formatBs(priceBs(p)*quantity)}`).join('\n')+`\n\nTotal: Bs ${formatBs(total())}`;}
 
 // Prepara el mensaje y abre WhatsApp para el vendedor elegido.
 function enviar(numero,nombre){if(!items().length)return;window.open('https://wa.me/'+numero+'?text='+encodeURIComponent(pedidoTexto(nombre)),'_blank','noopener,noreferrer');}
@@ -5702,7 +5890,7 @@ document.addEventListener('keydown', function(e) {
 });
 $('panel').addEventListener('click',e=>{if(e.target===$('panel')){const r=$('panel').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)cerrarPanel();}});
 try{const saved=JSON.parse(localStorage.getItem('smartgsm-pedido-v2')||'{}');for(const [id,q] of Object.entries(saved)){if(productoPorId.get(Number(id))&&!productoPorId.get(Number(id)).soldOut&&Number.isSafeInteger(q)&&q>0&&q<10000)cart[id]=q;}}catch{}
-renderVendedores();filtrar('');render();
+renderVendedores();mostrar();render();
 
 </script>
 
